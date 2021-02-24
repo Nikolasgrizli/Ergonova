@@ -1,0 +1,93 @@
+// @import "../css/jquery.fullpage.min.css";
+// // @import "./node_modules/slick-carousel/slick/slick.scss";
+// @import "../../../../node_modules/slick-carousel/slick/slick.scss";
+@import "utils/vars";
+@import "utils/mixins";
+@import "utils/fonts";
+@import "utils/normalize";
+// @import "../../../node_modules/bootstrap-4-grid/scss/grid.scss";
+
+html, body {
+    height: 100%;
+}
+
+html {
+    font-size: $main-font-size;
+    line-height: $main-line-height;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $main-font;
+    font-size: $main-font-size;
+    line-height: $main-line-height;
+    font-weight: $main-font-weight;
+    color: #000;
+    background-color: $color-white;
+    @extend %antialias;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+img, svg {
+    max-width: 100%;
+}
+
+svg {
+    fill: currentColor;
+    max-height: 100%;
+}
+
+button, a {
+    cursor: pointer;
+}
+
+strong,
+.bold{
+    font-weight: 700;
+    // font-family: $main-font_bold;
+}
+
+.layout {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column wrap;
+    min-height: 100%;
+    &__header,
+    &__footer{
+        flex: 0 0 auto;
+    }
+    &__header{
+        z-index: 1;
+    }
+    &__main{
+        margin-top: -10px;
+        flex: 1;
+    }
+}
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    max-width: 1176px;
+    @include rmin(1500){
+        max-width: 1440px;
+    }
+}
+
+
+// Components
+@import "components";
+
+// Utils
+@import "utils/utils";

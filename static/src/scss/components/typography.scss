@@ -1,0 +1,52 @@
+// Typography
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-style: normal;
+    margin-top: 0;
+    margin-bottom: 0.3em;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+h1, .h1 {
+    // font-size: 56px;
+    @include css-lock(25,56,1024,1920);
+    line-height: 67/56*1em;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+h2, .h2 {
+    font-size: 48px;
+    line-height: 58/48*1em;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+h3, .h3 {
+    font-size: 40px;
+    line-height: 52/40*1em;
+}
+
+h4, .h4 {
+    font-size: 32px;
+    line-height: 38/32*1em;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+h5, .h5 {
+    font-size: 24px;
+    line-height: 29/24*1em;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+h6, .h6 {
+    font-size: 18px;
+    line-height: 22/18*1em;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}

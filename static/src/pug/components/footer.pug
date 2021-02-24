@@ -1,0 +1,82 @@
+mixin footer()
+    footer.footer
+        .footer__container
+            .footer__top
+                .footer__col
+                    .footer__title Каталог
+                    .part
+                        .footer__list
+                            ul
+                                li: a(href="#") Массажные кресла
+                                li: a(href="#") Массажные накидки
+                                li: a(href="#") Массажеры
+                                li: a(href="#") Массажные подушки
+                                li: a(href="#") Массажные кровати
+                                li: a(href="#") Массажный кабинет
+                                li: a(href="#") Массажные тапочки
+                                li: a(href="#") Массажные коврики
+                    .part
+                        .footer__list
+                            ul
+                                li: a(href="#") Массажные маты
+                                li: a(href="#") Тренажеры
+                                li: a(href="#") Косметология
+                                li: a(href="#") Дом и офис
+                                li: a(href="#") Активный отдых
+                                li: a(href="#") Дача и сад
+                                li: a(href="#") Для детей
+
+
+                .footer__col
+                    .footer__title Спецпредложения
+
+                    .footer__list
+                        ul
+                            li: a(href="#") Распродажа
+                            li: a(href="#") Акции
+                            li: a(href="#") Дисконтные карты
+                            li: a(href="#") Тест-драйв
+                            li: a(href="#") Trade-in
+
+                .footer__col
+                    .footer__title О нас
+
+                    .footer__list
+                        ul
+                            li: a(href="#") Магазины
+                            li: a(href="#") Доставка
+                            li: a(href="#") О компании
+                            li: a(href="#") Контакты
+
+
+                .footer__col
+                    .footer__title Свяжитесь с нами:
+
+                    .footer__list.contacts
+                        ul
+                            li
+                                a(href="tel:8 800 700 14 29")
+                                    +icon('phone')
+                                    span 8 800 700 14 29
+                            li
+                                a(href="mailto:info@ergonova.ru")
+                                    +icon('email')
+                                    span info@ergonova.ru
+
+                    .footer__title Мы в соцсетях:
+
+                    .footer__list.socials
+                        ul
+                            li: a(href='https://vk.com/ergonova' target='_blank'): +icon('vk')
+                            li: a(href='https://www.facebook.com/ergonova/' target='_blank'): +icon('fb')
+                            li: a(href='https://www.instagram.com/ergonova_russia' target='_blank'): +icon('instagram')
+                            li: a(href='youtube' target='_blank'): +icon('youtube')
+
+
+            .footer__bottom
+                .copy © 2009 - 2021  Ergonova
+                a.confident(href="#") Политика конфиденциальности
+                .payments
+                    img(src=imgPath('logos/mastercard.svg'), alt="")
+                    img(src=imgPath('logos/visa.svg'), alt="")
+                    img(src=imgPath('logos/mir.svg'), alt="")

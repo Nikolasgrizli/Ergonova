@@ -1,0 +1,50 @@
+.menu-trigger{
+    margin-left: auto;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    @include rmin(1200){
+        display: none;
+    }
+    span{
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: $color-white;
+        position: relative;
+        transition: all $transition-base;
+        &::before,
+        &::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            background-color: $color-white;
+            transition: inherit;
+        }
+        &::before{
+            top: -10px;
+            transform-origin: 0% 0%;
+        }
+        &::after{
+            bottom: -10px;
+            transform-origin: 0% 100%;
+        }
+        .menu-open &{
+            background-color: rgba($color-white, .0);
+            &::before,
+            &::after{
+                background-color: darken($color-white, 5%);
+
+            }
+            &::before{
+                transform: rotate(45deg);
+            }
+            &::after{
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

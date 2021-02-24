@@ -1,0 +1,49 @@
+// Font
+$main-font: 'Gotham Pro', sans-serif;
+
+// Size
+$main-font-size: 16px;
+$main-font-weight: 400;
+$main-line-height: 1.5;
+
+
+// Breakpoints
+$breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 1024px,
+        xl: 1200px
+);
+
+// Colors
+$color-primary: #0090D3;
+$color-primary-darken: #0275AA;
+$color-white: #FFFFFF;
+$color-dark: #212121;
+$color-text: #656D74;
+$color-gray: #767E85;
+$color-gray-inactive: #939699;
+$color-border: #D9DADB;
+
+$color-warning: #F29D00;
+$color-danger: #FF2848;
+$color-success: #8BD02B;
+$color-overlay: rgba(0, 35, 51, 0.79);
+
+$radius: 5px;
+
+// Z-indexes
+// $z-indexes: (
+//         "modal",
+//         "latest-activities",
+//         "header",
+//         "wrapper",
+//         "footer"
+// );
+
+// Transitions
+$transition-base: 0.4s cubic-bezier(.23, 1, .32, 1);
+
+//transition last activities
+$transition-la: .6s cubic-bezier(0.08, 1.00, 0.21, 1.00);
