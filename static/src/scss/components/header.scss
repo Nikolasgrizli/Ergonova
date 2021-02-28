@@ -1,1 +1,261 @@
-.header{}
+.header{
+    &__container{
+        padding: 2rem 0;
+        display: flex;
+        align-items: center;
+    }
+    &__logo{
+        margin-right: 5rem;
+        img{
+            @include css-lock(175,260,768,1200,width);
+            @include css-lock(39,57,768,1200,height);
+        }
+    }
+    &__search{
+
+    }
+    &__location{
+        margin-left: auto;
+        margin-right: 6rem;
+        font-size: 1.2rem;
+    }
+
+    &__phone-callback{
+        text-align: right;
+        .link{
+            display: block;
+            text-decoration: none;
+            color: $color-dark;
+        }
+        .text{
+            font-size: 1.8rem;
+            font-weight: 700;
+            @include r($mob - 1){
+                display: none;
+            }
+        }
+        .icon{
+            @include rmin($mob){
+                display: none;
+            }
+        }
+        .callback{
+            color: $color-primary;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            &::after{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                left: 0;
+                bottom: 0;
+                background-image: repeating-linear-gradient(to left, currentColor, currentColor 4px, $color-white 4px, $color-white 8px);
+                transition: $transition-base;
+            }
+            &:hover{
+                color: $color-primary-darken;
+                &::after{
+                    background-position-x: 100px;
+                }
+            }
+        }
+    }
+
+    &__mobile,
+    .menu-trigger{
+        @include rmin($mob){
+            display: none;
+        }
+    }
+
+    // bottom header
+    &-bottom{
+        padding: 1.4rem 0;
+        border-top: 1px solid rgba(231, 229, 234, 0.42);
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.05);
+        &__container{
+            display: flex;
+            align-items: center;
+        }
+        .simple-nav{
+            @extend %reset-list;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            @include rmin($mob){
+                .catalog{
+                    display: none;
+                }
+            }
+            li{
+                display: flex;
+                align-items: center;
+                @include css-lock(30,50,1024,1200, margin-right);
+                .svg-icon{
+                    width: 1.6rem;
+                    height: 1.6rem;
+                    margin-right: .4rem;
+                }
+            }
+            a{
+                text-decoration: none;
+                transition: $transition-base;
+                &:hover{
+                    color: $color-primary-darken;
+                }
+            }
+        }
+        &__cart{
+            position: relative;
+        }
+    }
+}
+
+
+// header catalog
+.catalog-btn{
+    margin-right: 2rem;
+    @extend .btn;
+    @extend .btn_primary;
+    padding-top: em(9);
+    padding-bottom: em(9);
+    min-height: em(38);
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: $color-white;
+    .icon{
+        margin-right: 2rem;
+        position: relative;
+        width: 2rem;
+        height: 2px;
+        border-radius: 25%;
+        background-color: currentColor;
+        &::before,
+        &::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: inherit;
+            left: 0;
+            border-radius: inherit;
+        }
+        &::before{
+            max-width: 14/20*100%;
+            top: -.4em;
+        }
+        &::after{
+            bottom: calc(-.4em - 1px);
+        }
+    }
+    .nav-desktop{
+        position: absolute;
+        display: none;
+    }
+}
+
+
+// header search
+.form-search{
+    position: relative;
+    @include css-lock(300,370,1024,1200,width);
+    font-size: 1.4rem;
+    &__field{
+        appearance: none;
+        width: 100%;
+        padding: em(10,14) em(65,14) em(10,14) em(15);
+        color: $color-gray;
+        background-color: transparent;
+        border: 1px solid $color-border;
+        border-radius: $radius;
+        min-height: em(40,14);
+        &:focus{
+            outline: none;
+            box-shadow: inset 0 0 0 1px rgba($color-text,.3);
+        }
+    }
+    &__submit{
+        position: absolute;
+        top: 1px;
+        height: calc(100% - 2px);
+        width: em(50,14);
+        right: 1px;
+        z-index: 2;
+        border: none;
+        background-color: $color-white;
+        border-left: 1px solid $color-border;
+        border-top-right-radius: $radius;
+        border-bottom-right-radius: $radius;
+        color: $color-primary;
+        text-decoration: none;
+        transition: $transition-base;
+        &:hover{
+            background-color: $color-primary;
+            color: $color-white;
+        }
+        &:focus{
+            outline: none;
+            box-shadow: inset 0 0 0 1px rgba($color-text,.3);
+        }
+        .svg-icon{
+            @include abs-center();
+        }
+    }
+}
+
+
+// header location
+.location{
+    position: relative;
+    &__icon{
+        margin-right: .6rem;
+        width: 1.2rem;
+        height: 1.3rem;
+        fill: $color-primary;
+        transition: $transition-base;
+    }
+    &__value{
+        padding-right: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        position: relative;
+        color: $color-gray;
+        &:hover{
+            .location__icon{
+                fill: $color-primary-darken;
+            }
+        }
+        span{
+            position: relative;
+            &::after{
+                content: '';
+                position: absolute;
+                border-width: 3px 3.5px;
+                border-color: transparent;
+                border-style: solid;
+                border-top-color: currentColor;
+                top: calc(50% - 1px);
+                right: -9px;
+            }
+        }
+    }
+    &__drop{
+        @extend %reset-list;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: calc(100% + 1rem);
+        transform: translateY(1rem);
+        opacity: 0;
+        .is-open{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+

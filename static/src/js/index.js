@@ -1,6 +1,6 @@
 import $ from "jquery";
 // import './components/jquery.fullpage.extensions.min';
-// import slick from 'slick-carousel';
+import slick from 'slick-carousel';
 // import './components/pixi.js';
 // import {TimelineMax, Power3, TweenMax} from 'gsap';
 // import './components/sliderDisp.js';
@@ -123,6 +123,30 @@ if($(window).width() < 1024){
 // $(document).on('click', '.menu-item', function(){
 //     nav.leave();
 // });
+
+
+
+// product carousel
+$('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: false,
+    asNavFor: '.slider-nav'
+  });
+  $('.slider-nav').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    asNavFor: '.slider-for',
+    dots: false,
+    arrows: true,
+    vertical: true,
+    prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button" style=""><svg class="svg-icon"><use xlink:href="#arrow-up"></use></svg></button>',
+    nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button" style=""><svg class="svg-icon"><use xlink:href="#arrow-down"></use></svg></button>',
+    // focusOnSelect: true,
+    draggable: true,
+    verticalSwiping: true,
+  });
 
 
 

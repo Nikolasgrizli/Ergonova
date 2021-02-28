@@ -1,10 +1,10 @@
 mixin icon(name, options)
     - options = options || {};
     svg(
-        class = options.cls || ''
+        class = options.cls || 'svg-icon'
         width = options.w || null
         height = options.h || null
     )
         use(xlink:href="#" + name)
 mixin img(className, name, ext, alt)
-  img(class=`${className}` srcset=`/assets/img/${name}.${ext}, /assets/img/${name}@2x.${ext} 1.5x, /assets/img/${name}@2x.${ext} 2x`, src=`/assets/img/${name}.${ext}`, alt=`${alt}`)
+  img(class=`${className}` srcset=`/img/${name}.${ext}, /img/${name}@2x.${ext} 1.5x, /img/${name}@2x.${ext} 2x`, src=`/img/${name}.${ext}`, alt=`${alt}`)

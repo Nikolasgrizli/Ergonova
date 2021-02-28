@@ -6,8 +6,8 @@ mixin header(data)
         ]
      //BEGIN header
     header.header
-        .container.header-container
-            a.logo-link(href="#")
+        .container.header__container
+            a.header__logo(href="#")
                 img(src=imgPath('logos/logo.svg'), alt="")
             .catalog-btn
                 span.icon
@@ -15,13 +15,15 @@ mixin header(data)
                 .nav-desktop
                     +nav()
 
-            .header__search
+            .header__search.form-search
                 form
-                    input(type="text", name="search" placeholder="")
-                    button(type="submit"): +icon('search')
-            .header__location
-                +icon('location')
-                ul
+                    input.form-search__field(type="text", name="search" placeholder="Искать на Ergonova")
+                    button.form-search__submit(type="submit"): +icon('search')
+            .header__location.location
+                .location__value
+                    +icon('location',{cls:'location__icon'})
+                    span.js-location-name Москва
+                ul.location__drop
                     li: a(href="#") Москва
                     li: a(href="#") Санкт-Петербург
                     li: a(href="#") Екатеринбург
@@ -32,15 +34,15 @@ mixin header(data)
                     li: a(href="#") Оренбург
 
             .header__phone-callback
-                a(href="tel:8 800 700 14 29")
+                a.link(href="tel:8 800 700 14 29")
                     span.text 8 800 700 14 29
                     span.icon: +icon('phone2')
-                a.js-modal(href="#" data-target="callback") Заказать звонок
+                a.js-modal.callback(href="#" data-target="callback") Заказать звонок
 
             .menu-trigger
                 span
 
-        .header-mobile
+        .header__mobile
             .header__search
                 form
                     input(type="text", name="search" placeholder="")
@@ -59,13 +61,22 @@ mixin header(data)
                 a.js-modal(href="#" data-target="callback") Заказать звонок
 
 
-        .header-subnav
-            .simple-nav
-                each item, i in nav
-                    a(href="#" class!= (i==2) ? 'sale' : '')!=item
-            .header-subnav__cart
-                +icon('cart')
-                span.increment
+        .header-bottom
+            .container.header-bottom__container
+                ul.simple-nav
+                    each item, i in nav
+                        -
+                            var cls = {
+                                'catalog' : (i==0),
+                                'sale' : (i==2),
+                            }
+                        li(class!=cls)
+                            if (i==2)
+                                +icon('sale')
+                            a(href="#")!=item
+                a.header-bottom__cart(href="#")
+                    +icon('cart')
+                    span.increment
 
 
     //END header

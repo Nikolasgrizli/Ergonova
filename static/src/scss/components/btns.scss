@@ -1,0 +1,35 @@
+%button{
+    @extend %reset-btn;
+    padding: .52em 1em;
+    display: inline-flex;
+    flex: 0 0 auto;
+    max-width: 100%;
+    font-size: inherit;
+    text-align: center;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    transition: $transition-base;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: $radius;
+    line-height: 1.3;
+    min-height: em(48,16);
+    min-width: em(140,16);
+    font-weight: 700;
+}
+
+.btn {
+    @extend %button;
+    &_primary {
+        color: $color-white;
+        background-color: $color-primary;
+        border: 1px solid $color-primary;
+        @include hover {
+            color: $color-primary;
+            background-color: $color-white;
+            border: 1px solid $color-primary;
+        }
+    }
+
+}
