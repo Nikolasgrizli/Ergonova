@@ -1,10 +1,10 @@
 mixin footer()
     footer.footer
-        .footer__container
+        .footer__container.container
             .footer__top
                 .footer__col
-                    .footer__title Каталог
-                    .part
+                    .inner-left
+                        .footer__title Каталог
                         .footer__list
                             ul
                                 li: a(href="#") Массажные кресла
@@ -15,7 +15,8 @@ mixin footer()
                                 li: a(href="#") Массажный кабинет
                                 li: a(href="#") Массажные тапочки
                                 li: a(href="#") Массажные коврики
-                    .part
+                    .inner-right
+                        .footer__title &nbsp;
                         .footer__list
                             ul
                                 li: a(href="#") Массажные маты
@@ -28,28 +29,29 @@ mixin footer()
 
 
                 .footer__col
-                    .footer__title Спецпредложения
+                    .inner-left
+                        .footer__title Спецпредложения
 
-                    .footer__list
-                        ul
-                            li: a(href="#") Распродажа
-                            li: a(href="#") Акции
-                            li: a(href="#") Дисконтные карты
-                            li: a(href="#") Тест-драйв
-                            li: a(href="#") Trade-in
+                        .footer__list
+                            ul
+                                li: a(href="#") Распродажа
+                                li: a(href="#") Акции
+                                li: a(href="#") Дисконтные карты
+                                li: a(href="#") Тест-драйв
+                                li: a(href="#") Trade-in
 
-                .footer__col
-                    .footer__title О нас
+                    .inner-right
+                        .footer__title О нас
 
-                    .footer__list
-                        ul
-                            li: a(href="#") Магазины
-                            li: a(href="#") Доставка
-                            li: a(href="#") О компании
-                            li: a(href="#") Контакты
+                        .footer__list
+                            ul
+                                li: a(href="#") Магазины
+                                li: a(href="#") Доставка
+                                li: a(href="#") О компании
+                                li: a(href="#") Контакты
 
 
-                .footer__col
+                .footer__col.footer__col_last
                     .footer__title Свяжитесь с нами:
 
                     .footer__list.contacts
@@ -67,10 +69,10 @@ mixin footer()
 
                     .footer__list.socials
                         ul
-                            li: a(href='https://vk.com/ergonova' target='_blank'): +icon('vk')
-                            li: a(href='https://www.facebook.com/ergonova/' target='_blank'): +icon('fb')
-                            li: a(href='https://www.instagram.com/ergonova_russia' target='_blank'): +icon('instagram')
-                            li: a(href='youtube' target='_blank'): +icon('youtube')
+                            li: a.socials__link.socials__link_vk(href='https://vk.com/ergonova' target='_blank'): +icon('vk')
+                            li: a.socials__link.socials__link_fb(href='https://www.facebook.com/ergonova/' target='_blank'): +icon('facebook')
+                            li: a.socials__link.socials__link_insta(href='https://www.instagram.com/ergonova_russia' target='_blank'): +icon('instagram')
+                            li: a.socials__link.socials__link_yt(href='youtube' target='_blank'): +icon('youtube')
 
 
             .footer__bottom

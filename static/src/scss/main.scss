@@ -7,11 +7,13 @@
 @import "utils/normalize";
 // @import "../../../node_modules/bootstrap-4-grid/scss/grid.scss";
 
+$default-grid-columns: 12;
+$default-grid-gutter: 3rem;
 
-
-html, body {
-    height: 100%;
-}
+@import 'flexbox-grid-mixins';
+// html, body {
+//     height: 100%;
+// }
 
 html {
     font-size: 62.5%;
@@ -25,7 +27,7 @@ body {
     font-size: 1.6rem;
     line-height: $main-line-height;
     font-weight: $main-font-weight;
-    color: #000;
+    color: $color-text;
     background-color: $color-white;
     @extend %antialias;
     width: 100%;

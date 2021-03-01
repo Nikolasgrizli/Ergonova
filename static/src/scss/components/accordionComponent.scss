@@ -1,0 +1,97 @@
+.accordion{
+    @include rmin(1024){
+        @include grid( $flex-wrap: wrap, $gutter: $default-grid-gutter);
+
+    }
+    &__column{
+        @include rmin(1024){
+            @include grid-col($col: 3, $grid-columns: $default-grid-columns, $gutter: $default-grid-gutter );
+        }
+    }
+    &__head{
+        @include css-lock(14,20,768,1200);
+        font-weight: 700;
+        color: $color-dark;
+        @extend %link-dashed;
+        display: inline-flex;
+        align-items: center;
+        @include hover{
+            cursor: pointer;
+        }
+        &::after{
+            margin-left: .3rem;
+            content: '';
+            background-image: url(/img/decor/chevron-down.svg);
+            @extend %bg-contain;
+            width: 1rem;
+            height: .6rem;
+            display: inline-block;
+            position: relative;
+            transform-origin: center;
+            transition: transform $transition-base;
+        }
+
+    }
+    &__item{
+        margin-bottom: 3rem;
+        &.active{
+            .accordion__head{
+                &::before{
+                    background-position-x: 100px;
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                &::after{
+                    transform: rotate(-180deg)
+                }
+            }
+        }
+        &-phone{
+            margin-top: 1rem;
+            // margin-bottom: 3rem;
+            display: flex;
+            flex-flow: row wrap;
+            .phones{
+                padding-left: .4rem;
+                flex: 1;
+
+                a{
+                    display: block;
+                    margin-bottom: .5rem;
+                    text-decoration: none;
+                    color: $color-text;
+                    span{
+                        @extend %link-dashed;
+                    }
+                }
+            }
+        }
+    }
+    &__body{
+        // padding-top: 2rem;
+        font-size: 1.4rem;
+        & > a{
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: $color-dark;
+            text-decoration: none;
+            font-size: 1.6rem;
+            display: inline-block;
+            span{
+                display: inline;
+                @include hover{
+                    text-decoration: underline;
+                    text-underline-position: under;
+                    text-decoration-style: dashed;
+                }
+            }
+        }
+    }
+}
+.title-aria{
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+    overflow: hidden;
+}

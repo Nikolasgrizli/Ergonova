@@ -5,6 +5,8 @@ import slick from 'slick-carousel';
 // import {TimelineMax, Power3, TweenMax} from 'gsap';
 // import './components/sliderDisp.js';
 import { TimelineMax } from 'gsap';
+import './components/formComponent';
+import './components/accordionComponent';
 
 
 // Main js file

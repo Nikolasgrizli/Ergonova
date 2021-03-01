@@ -43,12 +43,12 @@ block content
                     .slide
                         img(src=imgPath('demo/slider3.jpg'), alt="")
 
-            .product__title
-                .product__tags
+            .product__title.p-title
+                .p-title__tags
                     .tag.tag_sale -20%
                     .tag.tag_hit Хит продаж
                 h1 Массажное кресло <br/>Ergonova Full Body SE
-                .product__article
+                .p-title__article
                     span Артикул: 33084
                     a.get-description(href="#" download)
                         img(src=imgPath('logos/pdf.svg'), alt="")
@@ -57,36 +57,37 @@ block content
                 .product__price
                     .price.price_old
                         | 675 000 ₽
-                    .price
+                    .price.price_new
                         | 529 000 ₽
 
                 .product__credit
                     a.js-modal(href="#" data-target="credit")  От <strong>22 041 ₽/мес</strong> в рассрочку под 0%
 
                 .product__btns
-                    a.btn.btn_primary(href="#")
-                        | Добавить в корзину
-                        i.icon: +icon('cart')
-                    a.btn.btn_primary-outline(href="#")
-                        | Запись на тест-драйв
-
-                    .delivery
-                        +icon('delivery')
-                        span Бесплатная доставка по РФ
-                    .compare
-                        a(href="#")
+                    .line.top
+                        a.btn.btn_primary(href="#")
+                            | Добавить в корзину
+                            i.icon.icon_right: +icon('cart2')
+                        a.btn.btn_primary-outline(href="#")
+                            | Запись на тест-драйв
+                    .line.bottom
+                        .delivery
+                            +icon('delivery')
+                            span Бесплатная доставка по РФ
+                        a.compare(href="#")
                             +icon('compare')
                             span  Сравнить
 
                 .product__locations
                     .title В наличии:
                     a(href="#") ТРК Родник, Салон ERGONOVA
+                    br
                     a(href="#") ТРЦ Алмаз, Салон ERGONOVA
 
 
         .product-nav
             ul
-                li: a(href='#description') Описание
+                li.is-active: a(href='#description') Описание
                 li: a(href='#description') Характеристики
                 li: a(href='#description') Доставка и самовывоз
                 li: a(href='#description') Гарантия
@@ -94,15 +95,15 @@ block content
                 li: a(href='#description') Аксессуары
 
         aside.banner.banner_1
-            .banner-bg
+            .banner__bg
             .banner__inner
-                h3.title Технологии<br/>и безупречный стиль
+                h2.title Технологии<br/>и безупречный стиль
                 .text
                     p <strong>Массажное кресло Ergonova Full Body —</strong> <br/>великолепный выбор для массажа всего тела. <br/>В нем собраны все самые эффективные функции, обеспечивающие максимальное расслабление и комфорт.
 
         section.section_advantages
             h2 Уникальные особенности
-            .adv-list
+            .advantages-list
                 .item.item_1
                     .title Удлинённая SL-образная<br/>массажная каретка
                 .item.item_2
@@ -114,13 +115,14 @@ block content
 
 
         aside.banner.banner_2
-            .banner-bg
+            .banner__bg
+                .banner-bg-clip
                 .banner-chair
             .banner__inner
-                h3.title Добро пожаловать на приём <br/>к профессиональному <br/>массажисту
+                .clipper
+                h2.title Добро пожаловать на приём <br/>к профессиональному <br/>массажисту
                 .text
                     p 3D механизм - повторяет действия рук массажиста,  снимая напряжение в тканях и мышечных узлах. Точечный массаж обеспечивает высокую проникающую способность и расслабление шеи и плеч.
-
 
         section.section_modes
             h2 Режимы 3D-массажа
@@ -136,16 +138,16 @@ block content
                     ]
                 each item, i in modes
                     .item
-                        img(src=imgPath(`mode/${i}.png`), alt="")
+                        img(src=imgPath(`mode/${i+1}.png`), alt="")
                         h3.title!=item.title
-                        p!=item.text
+                        p!=item.desc
 
         section.section_feature
             .feature
                 .feature__item
                     .feature__img
                         img(src=imgPath('feature/voice-assistant.jpg'), alt="")
-                    .feature__text
+                    .feature__text-wrapper
                         h3 Экономия времени
                         .feature__description Интуитивное голосовое управление
                         .feature__text
@@ -154,7 +156,7 @@ block content
                 .feature__item
                     .feature__img
                         img(src=imgPath('feature/yoga.jpg'), alt="")
-                    .feature__text
+                    .feature__text-wrapper
                         h3 гибкость тела
                         .feature__description Режим растяжки <br/>Yoga stretch edition
                         .feature__text
@@ -166,7 +168,7 @@ block content
                 .feature__item
                     .feature__img
                         img(src=imgPath('feature/wireless-charger.jpg'), alt="")
-                    .feature__text
+                    .feature__text-wrapper
                         h3 Зарядись и заряди смартфон
                         .feature__description Беспроводное <br/>зарядное устройство
                         .feature__text
@@ -175,7 +177,7 @@ block content
                 .feature__item
                     .feature__img
                         img(src=imgPath('feature/grafen.jpg'), alt="")
-                    .feature__text
+                    .feature__text-wrapper
                         h3 Система нагрева
                         .feature__description Графеновая <br/>технология прогрева
                         .feature__text
@@ -186,7 +188,7 @@ block content
                                     p В 2010 году Андрей Гейм и Константин Новоселов получили Нобелевскую премию за открытие графена - двумерного материала с полезными свойствами.
 
         aside.banner.banner_3
-            .banner-bg
+            .banner__bg
                 .banner-logo
                 .banner-chair
             .banner__inner
@@ -194,7 +196,7 @@ block content
                     p Понятие Zero Gravity (нулевой гравитации) было впервые разработано NASA. Массажное кресло откидывается, пока ноги не поднимутся на уровне сердца. Такое положение тела способствует более глубокому дыханию и расслаблению, при этом массажные ролики делают более эффективный массаж.
 
 
-        section.section_video
+        section.section_video.text-center
             h2 Мисс Бикини выбирает <br/>Full Body SE
             .video
                 img(src=imgPath('demo/video.png'), alt="")
@@ -209,7 +211,7 @@ block content
                 .feature__item
                     .feature__img
                         img(src=imgPath('feature/scaner.jpg'), alt="")
-                    .feature__text
+                    .feature__text-wrapper
                         h3 сканирование  тела
                         .feature__description Технология <br/>подстраивается под вас
                         .feature__text
@@ -219,8 +221,8 @@ block content
 
                 .feature__item
                     .feature__img
-                        img(src=imgPath('feature/longer.jpg'), alt="")
-                    .feature__text
+                        img(src=imgPath('feature/longer.png'), alt="")
+                    .feature__text-wrapper
                         h3 массаж всего тела
                         .feature__description Удлинённая <br/>массажная каретка
                         .feature__text
@@ -232,7 +234,7 @@ block content
                 .feature__item
                     .feature__img
                         img(src=imgPath('feature/foot.jpg'), alt="")
-                    .feature__text
+                    .feature__text-wrapper
                         h3 отдых для ног
                         .feature__description Высококлассный <br/>икроножный массаж
                         .feature__text
@@ -242,7 +244,7 @@ block content
                 .feature__item
                     .feature__img
                         img(src=imgPath('feature/pillow.jpg'), alt="")
-                    .feature__text
+                    .feature__text-wrapper
                         h3 полное погружение
                         .feature__description Обволакивающие <br/>тело подушки
                         .feature__text
@@ -252,7 +254,7 @@ block content
                 .feature__item
                     .feature__img
                         img(src=imgPath('feature/foot2.jpg'), alt="")
-                    .feature__text
+                    .feature__text-wrapper
                         h3 Отдых для ног
                         .feature__description Массаж стопы
                         .feature__text
@@ -264,9 +266,9 @@ block content
                                     p Регулярный массаж пальцев стопы поможет при снятии стресса, улучшения работы кровеносной и лимфодренажной систем, а также разблокировки нервных путей.
 
         aside.banner.banner_4
-            .banner-bg
+            .banner__bg
             .banner__inner
-                h3.title Настолько удобно, что хочется заснуть
+                h2.title Настолько удобно,<br/> что хочется заснуть
 
 
         section.section_programm
@@ -277,7 +279,7 @@ block content
                         p Каждая из разработанных автоматических программ имеет свои отличительные особенности согласно общепринятым видам массажа.
                     .right
                         img(src=imgPath('programs.jpg'), alt="")
-                .programms__list
+                ol.programms__list
                     -
                         var list = [
                             {title: 'Хатха-йога', desc: 'Растяжка всего тела умеренной интенсивности'},
@@ -294,24 +296,32 @@ block content
                             {title: 'Сладкие сны', desc: 'Мягкий массаж шиацу,  надавливания и разминания для расслабления тела и мозга.'},
 
                         ]
+                    each item in list
+                        li.item
+                            .text
+                                h3.title!=item.title
+                                .description!=item.desc
 
         section.section_form
             .form-main
                 .form-main__left
-                    h2
-                    p
-                    .form-main__line
-                        .form-main__field
-                            input#name(type="text", name="")
-                    .form-main__line
-                        .form-main__field
-                            input#phone(type="text", name="")
-                    .form-main__accepted
-                        .form-main__checkbox
-                            input#accepted(type="checkbox", name="")
-                            span.pseudo
-                            .text Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a>
-                    button.btn.btn_primary(type="submit") Отправить заявку
+                    h2 Оставьте заявку
+                    p Свяжемся с вами в течение 15 минут
+                    form.form#form1(novalidate action="/test.php")
+                        .form__line
+                            .form__field
+                                input#name(type="text", name="given-name" placeholder="Ваше имя" data-validate="no-empty")
+                                span.error.hidden(aria-live="polite") камон, неужели тебя зовут Никак?
+                        .form__line
+                            .form__field
+                                input#phone(type="phone", name="tel" placeholder="+7 962 555 63 34" data-validate="phone")
+                                span.error.hidden(aria-live="polite") без номера телефона будет сложно с тобой созвониться, не так ли?
+                        .form__accepted
+                            label.form__checkbox
+                                input#accepted1(type="checkbox", name="privacy" data-validate="checkbox")
+                                .pseudo
+                                .text Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a>
+                        button.btn.btn_primary(type="submit") Отправить заявку
 
                 .form-main__right
                     img(src=imgPath('form.jpg'), alt="")
@@ -319,283 +329,244 @@ block content
 
         section.section_addresses
             h2 Адреса салонов по городам
+            -
+                var accordion = [
+                    {
+                        town: 'Москва',
+                        stores: [
+                            {
+                                link: '/stores/trc-mega-belaya-dacha-magazin-ergonova',
+                                title: 'ТРЦ МЕГА Белая Дача, Салон ERGONOVA',
+                                lines: ['Метро Кузьминки, г. Котельники, 1-й Покровский пр-д, 5','напротив кассовой зоны ИКЕА'],
+                                phones: ['8 (800) 700-14-29','8 (495) 755-20-98']
+                            },
+                        ]
+                    },
+                    {
+                        town: 'Санкт-Петербург',
+                        stores: [
+                            {
+                                link: '/stores/tс-cont-magazin-t',
+                                title: 'ТК Мебельный континент',
+                                lines: ['Варшавская, 3, к1, 3 этаж, секция 333А','Метро Электросила'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Екатеринбург',
+                        stores: [
+                            {
+                                link: '/stores/trc-raduga-park-magazin-massager',
+                                title: 'ТРЦ РАДУГА ПАРК, Салон ERGONOVA',
+                                lines: ['Ул. Репина, 94','напротив Билайн'],
+                                phones: ['8 (800) 700-14-29','8 967 639 62 13']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Нижний Новгорород',
+                        stores: [
+                            {
+                                link: '/stores/relaks-ip-savin',
+                                lines: ['ул. Невзоровых','д. 49, оф. 8'],
+                                phones: ['8 (800) 700-14-29'],
+                            },
+                            {
+                                link: '/stores/tс-mir-magazin-massager',
+                                lines: ['Бульвар Мира','д.7'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Самара',
+                        stores: [
+                            {
+                                title: 'МЕГА Самара, остров ERGONOVA',
+                                link: '/stores/mega-samara-ostrov-ergonova',
+                                lines: ['Московское шоссе, 24-й километр, 5','1 этаж, рядом с М.Видео'],
+                                phones: ['8 (800) 700-14-29', ' 8 903 301 61 08'],
+                            },
+                            {
+                                title: 'ТРК КОСМОПОРТ, остров ERGONOVA',
+                                link: '/stores/trk-kosmoport-ostrov-ergonova',
+                                lines: [' ул. Дыбенко, 30','1 этаж'],
+                                phones: ['8 (800) 700-14-29', '8 903 301 58 38']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Казань',
+                        stores: [
+                            {
+                                title: 'ЦУМ',
+                                link: '/stores/cym-magazin-massager',
+                                lines: ['Московская, 2.'],
+                                phones: ['8 (800) 700-14-29'],
+                            },
+                            {
+                                title: 'ТЦ ЮЖНЫЙ',
+                                link: '/stores/tс-ujnui-magazin-massager',
+                                lines: [' Пр-т Победы, 91'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Челябинск',
+                        stores: [
+                            {
+                                title: 'ТРЦ Алмаз,  Салон ERGONOVA',
+                                link: '/stores/trc-almaz-magazin-ergonova',
+                                lines: ['Копейское шоссе, 64', '2 этаж, рядом с Leroy Merlin'],
+                                phones: ['8 967 862 03 06','8 (800) 700-14-29'],
+                            },
+                            {
+                                title: 'ТРК Родник,  Салон ERGONOVA',
+                                link: '/stores/trk-rodnik-magazin-massager',
+                                lines: ['Ул. Труда, 203','(–2 этаж), напротив Castorama'],
+                                phones: ['8 967 862 03 05','8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Уфа',
+                        stores: [
+                            {
+                                title: 'МЕГА Уфа,  Салон ERGONOVA',
+                                link: '/stores/stc-mega-magazin-ergonova',
+                                lines: [' ул. Рубежная, 174','1 этаж, напротив кассовой зоны ИКЕА'],
+                                phones: ['8 (800) 700-14-29','8 (347) 299-32-82']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Пермь',
+                        stores: [
+                            {
+                                title: 'Бульвар',
+                                link: '/stores/stc-mega-magazin-ergonova',
+                                lines: [' Гагарина 26'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Саратов',
+                        stores: [
+                            {
+                                title: 'ТК «Ваш дом»',
+                                link: '/stores/ooo-cit',
+                                lines: [' Зарубина 150'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Тюмень',
+                        stores: [
+                            {
+                                title: 'ТК «ОРИОН»  Салон ERGONOVA',
+                                link: '/stores/tс-orion-magazin-massager',
+                                lines: ['ул. Федюнинского, 43, 1 уровень', 'рядом с магазином  «Амега»'],
+                                phones: ['8 967 862 03 06','8 (800) 700-14-29'],
+                            },
+                            {
+                                title: 'ТРЦ «Премьер»',
+                                link: '/stores/tс-premer-cont-massager',
+                                lines: ['ул. 50 лет ВЛКСМ, д. 63',' (вход со стороны АЗС)'],
+                                phones: ['8 967 862 03 05','8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Ульяновск',
+                        stores: [
+                            {
+                                title: 'Мир массажа, ТЦ ПАРУС',
+                                link: '/stores/ooo-cit',
+                                lines: ['Ульяновск, пр. Авиастроителей','7а, 2 этаж'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Оренбург',
+                        stores: [
+                            {
+                                title: 'ТРЦ ARMADA-2, Салон ERGONOVA',
+                                link: '/stores/ooo-cit',
+                                lines: ['Нежинское шоссе, 2А','1 этаж, рядом с магазином «Лента»'],
+                                phones: ['8 (800) 700-14-29','8 (3532) 42 42 58']
+                            },
+                            {
+                                title: 'Молл Армада,  Салон ERGONOVA',
+                                link: '/stores/moll-armada-magazin-ergonova',
+                                lines: ['Шарлыкское шоссе, 1','Молл Армада, галерея Лувр, 1 этаж'],
+                                phones: ['8 (3532) 29 28 58','8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Набережные челны',
+                        stores: [
+                            {
+                                title: 'ТЦ Омега',
+                                link: '/stores/tс-omega-magazin-massager',
+                                lines: ['Н. Челны. Пр-т ​Сююмбике, 2/19'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Магнитогорск',
+                        stores: [
+                            {
+                                title: 'ТРК Гостиный Двор, Салон ERGONOVA',
+                                link: '/stores/trk-gostinyy-dvor-magazin-ergonova',
+                                lines: ['г. Магнитогорск, проспект Карла Маркса, 153','1 этаж'],
+                                phones: ['8 (3519) 39-30-32','8 (800) 700-14-29']
+                            }
+                        ]
+                    },
 
-            .e-address-list__items.row
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/trc-mega-belaya-dacha-magazin-ergonova') Магазин в Москве
-                    .e-address-list__item-content
-                        | ТРЦ МЕГА Белая Дача, Салон ERGONOVA
-                        br
-                        |                         Метро Кузьминки | г. Котельники, 1-й Покровский пр-д, 5
-                        br
-                        |                         напротив кассовой зоны ИКЕА
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29 <br> 8 (495) 755-20-98')
-                            | 8 (800) 700-14-29
-                            br
-                            |  8 (495) 755-20-98
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/tс-cont-magazin-t') Магазин в Санкт-Петербурге
-                    .e-address-list__item-content
-                        | ТК Мебельный континент
-                        br
-                        |                         Варшавская, 3, к1, 3 этаж, секция 333А
-                        br
-                        |                         Метро Электросила
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29') 8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/trc-raduga-park-magazin-massager') Магазин в Екатеринбурге
-                    .e-address-list__item-content
-                        | ТРЦ РАДУГА ПАРК, Салон ERGONOVA
-                        br
-                        |                         Ул. Репина, 94
-                        br
-                        |                         напротив Билайн
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29 <br> 8 967 639 62 13')
-                            | 8 (800) 700-14-29
-                            br
-                            |  8 967 639 62 13
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/relaks-ip-savin') Магазин в Нижнем Новгороде
-                    .e-address-list__item-content
-                        | ул. Невзоровых
-                        br
-                        |                         д. 49, оф. 8
-                        br
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29') 8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/tс-mir-magazin-massager') Магазин в Нижнем Новгороде
-                    .e-address-list__item-content
-                        | Бульвар Мира
-                        br
-                        |                         д.7
-                        br
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29') 8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/mega-samara-ostrov-ergonova') Магазин в Самаре
-                    .e-address-list__item-content
-                        | МЕГА Самара, остров ERGONOVA
-                        br
-                        |                         Московское шоссе, 24-й километр, 5
-                        br
-                        |                         1 этаж, рядом с М.Видео
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29 <br> 8 903 301 61 08')
-                            | 8 (800) 700-14-29
-                            br
-                            |  8 903 301 61 08
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/trk-kosmoport-ostrov-ergonova') Магазин в Самаре
-                    .e-address-list__item-content
-                        | ТРК КОСМОПОРТ, остров ERGONOVA
-                        br
-                        |                         ул. Дыбенко, 30
-                        br
-                        |                          1 этаж
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29 <br> 8 903 301 58 38')
-                            | 8 (800) 700-14-29
-                            br
-                            |  8 903 301 58 38
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/cym-magazin-massager') Магазин в Казани
-                    .e-address-list__item-content
-                        | ЦУМ
-                        br
-                        |                         Московская, 2.
-                        br
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29') 8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/tс-ujnui-magazin-massager') Магазин в Казани
-                    .e-address-list__item-content
-                        | ТЦ ЮЖНЫЙ
-                        br
-                        |                         Пр-т Победы, 91
-                        br
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29') 8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/trc-almaz-magazin-ergonova') Магазин в Челябинске
-                    .e-address-list__item-content
-                        | ТРЦ Алмаз,  Салон ERGONOVA
-                        br
-                        |                         Копейское шоссе, 64
-                        br
-                        |                         2 этаж, рядом с Leroy Merlin
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 967 862 03 06 <br> 8 (800) 700-14-29 ')
-                            | 8 967 862 03 06
-                            br
-                            |  8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/trk-rodnik-magazin-massager') Магазин в Челябинске
-                    .e-address-list__item-content
-                        | ТРК Родник,  Салон ERGONOVA
-                        br
-                        |                         Ул. Труда, 203
-                        br
-                        |                          (–2 этаж), напротив Castorama
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 967 862 03 05 <br> 8 (800) 700-14-29 ')
-                            | 8 967 862 03 05
-                            br
-                            |  8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/stc-mega-magazin-ergonova') Магазин в Уфе
-                    .e-address-list__item-content
-                        | МЕГА Уфа,  Салон ERGONOVA
-                        br
-                        |                         ул. Рубежная, 174
-                        br
-                        |                         1 этаж, напротив кассовой зоны ИКЕА
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29 <br> 8 (347) 299-32-82')
-                            | 8 (800) 700-14-29
-                            br
-                            |  8 (347) 299-32-82
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/ip-kotelnikova') Магазин в Перми
-                    .e-address-list__item-content
-                        | Бульвар
-                        br
-                        |                         Гагарина
-                        br
-                        |                         26
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29') 8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/ooo-cit') Магазин в Саратове
-                    .e-address-list__item-content
-                        | ТК «Ваш дом»
-                        br
-                        |                         Зарубина 150
-                        br
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29') 8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/tс-orion-magazin-massager') Магазин в Тюмени
-                    .e-address-list__item-content
-                        | ТК «ОРИОН»  Салон ERGONOVA
-                        br
-                        |                         ул. Федюнинского, 43, 1 уровень
-                        br
-                        |                         рядом с магазином  «Амега»
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29') 8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/tс-premer-cont-massager') Магазин в Тюмени
-                    .e-address-list__item-content
-                        | ТРЦ «Премьер»
-                        br
-                        |                         ул. 50 лет ВЛКСМ, д. 63
-                        br
-                        |                         (вход со стороны АЗС)
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29') 8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/tс-parus-magazin-massager') Магазин в Ульяновске
-                    .e-address-list__item-content
-                        | Мир массажа, ТЦ ПАРУС
-                        br
-                        |                         Ульяновск, пр. Авиастроителей, 7а, 2 этаж
-                        br
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29') 8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/trc-armada2-magazin-ergonova') Магазин в Оренбурге
-                    .e-address-list__item-content
-                        | ТРЦ ARMADA-2, Салон ERGONOVA
-                        br
-                        |                         Нежинское шоссе, 2А
-                        br
-                        |                         1 этаж, рядом с магазином «Лента»
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29 <br> 8 (3532) 42 42 58')
-                            | 8 (800) 700-14-29
-                            br
-                            |  8 (3532) 42 42 58
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/moll-armada-magazin-ergonova') Магазин в Оренбурге
-                    .e-address-list__item-content
-                        | Молл Армада,  Салон ERGONOVA
-                        br
-                        |                         Шарлыкское шоссе, 1
-                        br
-                        |                         Молл Армада, галерея Лувр, 1 этаж
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29 <br> 8 (3532) 29 28 58')
-                            | 8 (800) 700-14-29
-                            br
-                            |  8 (3532) 29 28 58
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/tс-omega-magazin-massager') Магазин в Набережных челнах
-                    .e-address-list__item-content
-                        | ТЦ Омега
-                        br
-                        |                         Н. Челны. Пр-т ​Сююмбике, 2/19
-                        br
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29') 8 (800) 700-14-29
-                .e-address-list__item
-                    .e-address-list__item-title
-                        a(href='/stores/trk-gostinyy-dvor-magazin-ergonova') Магазин в Магнитогорске
-                    .e-address-list__item-content
-                        | ТРК Гостиный Двор, Салон ERGONOVA
-                        br
-                        |                         г. Магнитогорск, проспект Карла Маркса, 153
-                        br
-                        |                         1 этаж
-                        br
-                        |                         Тел.:
-                        a(href='tel:8 (800) 700-14-29 <br> 8 (3519) 39-30-32')
-                            | 8 (800) 700-14-29
-                            br
-                            |  8 (3519) 39-30-32
+                ]
+
+
+            .accordion#accordion1
+                -
+                    var fColumn = accordion.slice(0,3)
+                    var sColumn = accordion.slice(4,7)
+                    var tColumn = accordion.slice(8,11)
+                    var lColumn = accordion.slice(12)
+                    var columns = [fColumn,sColumn,tColumn,lColumn]
+
+                each column in columns
+                    .accordion__column
+                        each item, i in column
+                            .accordion__item
+                                .accordion__head
+                                    span!= 'г.' + item.town
+                                .accordion__body
+                                    each store in item.stores
+                                        a(href!=store.link)
+                                            if store.title
+                                                span!=store.title
+                                            else
+                                                span Сайт магазина
+                                        each line in store.lines
+                                            div!=line
+
+                                        .accordion__item-phone
+                                            .label Тел.:
+                                            .phones
+                                                each phone in store.phones
+                                                    a(href!=phone)
+                                                        span!=phone
+
+
+
 
         section.section_map
             h2.title-aria Адреса салонов по городам на карте

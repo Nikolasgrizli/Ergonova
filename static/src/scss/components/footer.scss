@@ -1,3 +1,129 @@
 .footer{
-  
+    color: $color-white;
+    background-color: #262D33;
+    &__container{
+
+    }
+    &__top{
+        padding: 5rem 0 6rem;
+        border-bottom: 1px solid #4B5157;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__col{
+        display: flex;
+        &_last{
+            max-width: 21rem;
+            display: block;
+        }
+        .inner-left,
+        .inner-right{
+            @include rmin(1024){
+                flex: 1 1 50%;
+            }
+        }
+        .inner-right{
+            @include css-lock(35,70,768,1200,margin-left)
+        }
+        .footer__title{
+            margin-bottom: 2.5rem;
+            flex: 1 1 100%;
+            width: 100%;
+            max-width: 100%;
+            font-weight: 600;
+        }
+    }
+
+    &__list{
+        ul{
+            @extend %reset-list;
+            li{
+                margin-bottom: 1.4rem;
+            }
+        }
+        a{
+            color: inherit;
+            opacity: .85;
+            text-decoration: none;
+            transition: opacity $transition-base;
+            font-size: 1.4rem;
+            white-space: nowrap;
+            @include hover{
+                opacity: 1;
+            }
+        }
+    }
+    .contacts{
+        margin-bottom: 3rem;
+        a{
+            display: flex;
+            align-items: center;
+            .svg-icon{
+                margin-right: 1rem;
+            }
+        }
+    }
+    .socials{
+        ul{
+            display: flex;
+            li{
+                margin-bottom: 0;
+                &:not(:last-child){
+                    margin-right: 1.5rem;
+                }
+            }
+        }
+        &__link{
+            display: block;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            text-decoration: none;
+            position: relative;
+            &_vk{
+                background-color: #2787F5;
+            }
+            &_fb{
+                background-color: #4267B2;
+            }
+            &_insta{
+                background-image: linear-gradient(37.15deg, #FA9F4D 16.12%, #E15185 51.14%, #C63596 90%);
+            }
+            &_yt{
+                background-color: #FF0000;
+            }
+            .svg-icon{
+                @include abs-center;
+                z-index: 2;
+            }
+        }
+    }
+
+    &__bottom{
+        padding: 2.5rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.4rem;
+        color: #939699;
+        a{
+            color: inherit;
+            text-decoration: none;
+            @extend %link-dashed;
+        }
+    }
+    .payments{
+        display: flex;
+        align-items: center;
+        img{
+            &:not(:last-child){
+                margin-right: 1.3rem;
+            }
+            transition: $transition-base;
+            filter: grayscale(100%);
+            @include hover{
+                filter: grayscale(0);
+            }
+        }
+    }
 }

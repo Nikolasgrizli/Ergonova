@@ -187,6 +187,20 @@
     }
 }
 
+@mixin aspect-ratio-progress($w,$h){
+
+    @supports (aspect-ratio: 1 / 1) {
+        aspect-ratio: $w/$h;
+        column-count: 1;
+        &::before{
+            content: "";
+            float: left;
+            padding-bottom: calc(#{$w} / #{$h} * 100%);
+        }
+    }
+}
+
+
 @mixin hover {
     .no-touch &:hover {
         @content
