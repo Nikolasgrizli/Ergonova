@@ -103,6 +103,7 @@
             a{
                 text-decoration: none;
                 transition: $transition-base;
+                color: $color-dark;
                 &:hover{
                     color: $color-primary-darken;
                 }
