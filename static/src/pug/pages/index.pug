@@ -61,14 +61,14 @@ block content
                         | 529 000 ₽
 
                 .product__credit
-                    a.js-modal(href="#" data-target="credit")  От <strong>22 041 ₽/мес</strong> в рассрочку под 0%
+                    a.js-modal(href="credit")  От <strong>22 041 ₽/мес</strong> в рассрочку под 0%
 
                 .product__btns
                     .line.top
                         a.btn.btn_primary(href="#")
                             | Добавить в корзину
                             i.icon.icon_right: +icon('cart2')
-                        a.btn.btn_primary-outline(href="#")
+                        a.btn.btn_primary-outline.js-modal(href="testdrive")
                             | Запись на тест-драйв
                     .line.bottom
                         .delivery
@@ -119,10 +119,10 @@ block content
                 .banner-bg-clip
                 .banner-chair
             .banner__inner
-                .clipper
+                //- .clipper
                 h2.title Добро пожаловать на приём <br/>к профессиональному <br/>массажисту
                 .text
-                    p 3D механизм - повторяет действия рук массажиста,  снимая напряжение в тканях и мышечных узлах. Точечный массаж обеспечивает высокую проникающую способность и расслабление шеи и плеч.
+                    p 3D механизм - повторяет действия рук массажиста,<br/> снимая напряжение в тканях и мышечных узлах.<br/> Точечный массаж обеспечивает высокую<br/> проникающую способность и<br/> расслабление шеи и плеч.
 
         section.section_modes
             h2 Режимы 3D-массажа
@@ -307,20 +307,21 @@ block content
                 .form-main__left
                     h2 Оставьте заявку
                     p Свяжемся с вами в течение 15 минут
-                    form.form#form1(novalidate action="/test.php")
+                    form.form.form_js-validate#form1(novalidate action="/test.php")
                         .form__line
                             .form__field
                                 input#name(type="text", name="given-name" placeholder="Ваше имя" data-validate="no-empty")
-                                span.error.hidden(aria-live="polite") камон, неужели тебя зовут Никак?
+                                span.error.hidden(aria-live="polite") Поле не должно быть пустым.
                         .form__line
                             .form__field
-                                input#phone(type="phone", name="tel" placeholder="+7 962 555 63 34" data-validate="phone")
-                                span.error.hidden(aria-live="polite") без номера телефона будет сложно с тобой созвониться, не так ли?
+                                input#phone(type="phone", name="tel" placeholder="Ваш телефон" data-validate="phone")
+                                span.error.hidden(aria-live="polite") Введите действительный номер телефона.
                         .form__accepted
                             label.form__checkbox
                                 input#accepted1(type="checkbox", name="privacy" data-validate="checkbox")
                                 .pseudo
                                 .text Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a>
+                                span.error.hidden(aria-live="polite") Флажок должен быть отмечен
                         button.btn.btn_primary(type="submit") Отправить заявку
 
                 .form-main__right
@@ -573,3 +574,29 @@ block content
             .map
                 img(src=imgPath('demo/map.jpg'), alt="")
 
+
+block modals
+    -
+        var modals = [
+            {
+                id: 'callback',
+                title: 'Заказать звонок',
+                text: '<p>Свяжемся с вами в течение 15 минут.</p> <p>Наш менеджер ответит на все ваши вопросы.</p>',
+            },
+            {
+                id: 'testdrive',
+                title: 'Записаться на тест-драйв',
+                text: '<p>Подберём ближайший к вам салон и подходящее время</p>',
+            },
+            {
+                id: 'credit',
+                title: 'Оформить рассрочку',
+                text: '<p>Пожалуйста, оставьте свои данные в форме ниже.</p> <p>Наш менеджер перезвонит вам для </p> <p>индивидуального просчета.</p>',
+            },
+
+
+        ]
+
+
+    each item in modals
+        +modal(item)

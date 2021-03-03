@@ -35,7 +35,9 @@ $field_error-bg: $color-danger;
 @mixin field_focus(){
     &:focus,
     &:focus-within{
-        outline: 1px dashed currentColor;
+        // outline: 1px dashed currentColor;
+        outline: none;
+        border-color: $color-gray;
     }
 }
 
@@ -92,6 +94,7 @@ $field_error-bg: $color-danger;
             font-size: $field_font-size;
             display: block;
             width: 100%;
+            color: $color-gray;
             background-color: $field_bg-color;
             border-radius: $field_border-radius;
             border: $field_border-width solid $field_border-color;
@@ -101,7 +104,7 @@ $field_error-bg: $color-danger;
                 border-color: $field_border-color--error;
             }
             @include placeholder{
-                color: currentColor;
+                color: rgba($color-gray,.7);
                 opacity: .9;
             }
             @include field_focus();
@@ -213,14 +216,32 @@ $field_error-bg: $color-danger;
         margin-top: em(55);
         display: block;
         text-align: right;
-        button{
-            // @extend %btn-outline;
-
-            // @include btn-animation-outline(var(--color-bg),var(--color-text));
-        }
     }
+
     .hidden{
         display: none !important;
     }
 }
 
+
+.form-main{
+    .form__checkbox{
+        .text{
+            color: rgba($color-gray,.8);
+            a{
+                text-decoration: none;
+                color: $color-text;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    button{
+        &.btn_primary{
+            font-weight: 600;
+        }
+    }
+
+}

@@ -37,7 +37,7 @@ mixin header(data)
                 a.link(href="tel:8 800 700 14 29")
                     span.text 8 800 700 14 29
                     span.icon: +icon('phone2')
-                a.js-modal.callback(href="#" data-target="callback") Заказать звонок
+                a.js-modal.callback(href="callback") Заказать звонок
 
             .menu-trigger
                 span
@@ -58,8 +58,7 @@ mixin header(data)
                 a(href="tel:8 800 700 14 29")
                     span.text 8 800 700 14 29
                     span.icon: +icon('phone2')
-                a.js-modal(href="#" data-target="callback") Заказать звонок
-
+                a.js-modal(href="callback") Заказать звонок
 
         .header-bottom
             .container.header-bottom__container
@@ -68,15 +67,16 @@ mixin header(data)
                         -
                             var cls = {
                                 'catalog' : (i==0),
-                                'sale' : (i==2),
+                                'sale is-active' : (i==2),
                             }
                         li(class!=cls)
-                            if (i==2)
-                                +icon('sale')
-                            a(href="#")!=item
-                a.header-bottom__cart(href="#")
+                            a(href="#")
+                                if (i==2)
+                                    +icon('sale')
+                                span!=item
+                a.header-bottom__cart.is-active(href="#")
                     +icon('cart')
-                    span.increment
+                    span.increment 3
 
 
     //END header

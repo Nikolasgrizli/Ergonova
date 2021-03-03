@@ -1,2 +1,27 @@
 mixin modal(data)
     - data = data || {}
+
+    .smart-modal(id!=data.id)
+        .smart-modal__overlay
+        .smart-modal__content
+            .smart-modal__close
+                +icon('close')
+            h2.smart-modal__title!=data.title
+            .smart-modal__text!=data.text
+
+            form.form.form_js-validate(id!=`form_${data.id}` novalidate action="/test.php")
+                .form__line
+                    .form__field
+                        input#name(type="text", name="given-name" placeholder="Ваше имя" data-validate="no-empty")
+                        span.error.hidden(aria-live="polite") Поле не должно быть пустым.
+                .form__line
+                    .form__field
+                        input#phone(type="phone", name="tel" placeholder="Ваш телефон" data-validate="phone")
+                        span.error.hidden(aria-live="polite") Введите действительный номер телефона.
+                .form__accepted
+                    label.form__checkbox
+                        input#accepted1(type="checkbox", name="privacy" data-validate="checkbox")
+                        .pseudo
+                        .text Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a>
+                        span.error.hidden(aria-live="polite") Флажок должен быть отмечен
+                button.btn.btn_primary(type="submit") Отправить заявку

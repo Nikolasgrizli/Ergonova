@@ -220,7 +220,7 @@
             <div class="header__phone-callback"><a class="link" href="tel:8 800 700 14 29"><span class="text">8 800 700 14 29</span><span class="icon">
                   <svg class="svg-icon">
                     <use xlink:href="#phone2"></use>
-                  </svg></span></a><a class="js-modal callback" href="#" data-target="callback">Заказать звонок</a></div>
+                  </svg></span></a><a class="js-modal callback" href="callback">Заказать звонок</a></div>
             <div class="menu-trigger"><span></span></div>
           </div>
           <div class="header__mobile">
@@ -414,36 +414,27 @@
             <div class="header__phone-callback"><a href="tel:8 800 700 14 29"><span class="text">8 800 700 14 29</span><span class="icon">
                   <svg class="svg-icon">
                     <use xlink:href="#phone2"></use>
-                  </svg></span></a><a class="js-modal" href="#" data-target="callback">Заказать звонок</a></div>
+                  </svg></span></a><a class="js-modal" href="callback">Заказать звонок</a></div>
           </div>
           <div class="header-bottom">
             <div class="container header-bottom__container">
               <ul class="simple-nav">
-                <li class="catalog"><a href="#">Каталог</a>
-                </li>
-                <li><a href="#">Магазины</a>
-                </li>
-                <li class="sale">
-                  <svg class="svg-icon">
-                    <use xlink:href="#sale"></use>
-                  </svg><a href="#">Распродажа</a>
-                </li>
-                <li><a href="#">Акции</a>
-                </li>
-                <li><a href="#">Доставка</a>
-                </li>
-                <li><a href="#">О компании</a>
-                </li>
-                <li><a href="#">Тест-драйв</a>
-                </li>
-                <li><a href="#">Trade-in</a>
-                </li>
-                <li><a href="#">Контакты</a>
-                </li>
-              </ul><a class="header-bottom__cart" href="#">
+                <li class="catalog"><a href="#"><span>Каталог</span></a></li>
+                <li><a href="#"><span>Магазины</span></a></li>
+                <li class="sale is-active"><a href="#">
+                    <svg class="svg-icon">
+                      <use xlink:href="#sale"></use>
+                    </svg><span>Распродажа</span></a></li>
+                <li><a href="#"><span>Акции</span></a></li>
+                <li><a href="#"><span>Доставка</span></a></li>
+                <li><a href="#"><span>О компании</span></a></li>
+                <li><a href="#"><span>Тест-драйв</span></a></li>
+                <li><a href="#"><span>Trade-in</span></a></li>
+                <li><a href="#"><span>Контакты</span></a></li>
+              </ul><a class="header-bottom__cart is-active" href="#">
                 <svg class="svg-icon">
                   <use xlink:href="#cart"></use>
-                </svg><span class="increment"></span></a>
+                </svg><span class="increment">3</span></a>
             </div>
           </div>
         </header>
@@ -501,12 +492,12 @@
                 <div class="price price_old">675 000 ₽</div>
                 <div class="price price_new">529 000 ₽</div>
               </div>
-              <div class="product__credit"><a class="js-modal" href="#" data-target="credit"> От <strong>22 041 ₽/мес</strong> в рассрочку под 0%</a></div>
+              <div class="product__credit"><a class="js-modal" href="credit"> От <strong>22 041 ₽/мес</strong> в рассрочку под 0%</a></div>
               <div class="product__btns">
                 <div class="line top"><a class="btn btn_primary" href="#">Добавить в корзину<i class="icon icon_right">
                       <svg class="svg-icon">
                         <use xlink:href="#cart2"></use>
-                      </svg></i></a><a class="btn btn_primary-outline" href="#">Запись на тест-драйв</a></div>
+                      </svg></i></a><a class="btn btn_primary-outline js-modal" href="testdrive">Запись на тест-драйв</a></div>
                 <div class="line bottom">
                   <div class="delivery">
                     <svg class="svg-icon">
@@ -565,10 +556,9 @@
               <div class="banner-chair"></div>
             </div>
             <div class="banner__inner">
-              <div class="clipper"></div>
               <h2 class="title">Добро пожаловать на приём <br/>к профессиональному <br/>массажисту</h2>
               <div class="text">
-                <p>3D механизм - повторяет действия рук массажиста,  снимая напряжение в тканях и мышечных узлах. Точечный массаж обеспечивает высокую проникающую способность и расслабление шеи и плеч.</p>
+                <p>3D механизм - повторяет действия рук массажиста,<br/> снимая напряжение в тканях и мышечных узлах.<br/> Точечный массаж обеспечивает высокую<br/> проникающую способность и<br/> расслабление шеи и плеч.</p>
               </div>
             </div>
           </aside>
@@ -849,22 +839,22 @@
               <div class="form-main__left">
                 <h2>Оставьте заявку</h2>
                 <p>Свяжемся с вами в течение 15 минут</p>
-                <form class="form" id="form1" novalidate action="/test.php">
+                <form class="form form_js-validate" id="form1" novalidate action="/test.php">
                   <div class="form__line">
                     <div class="form__field">
-                      <input id="name" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">камон, неужели тебя зовут Никак?</span>
+                      <input id="name" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">Поле не должно быть пустым.</span>
                     </div>
                   </div>
                   <div class="form__line">
                     <div class="form__field">
-                      <input id="phone" type="phone" name="tel" placeholder="+7 962 555 63 34" data-validate="phone"><span class="error hidden" aria-live="polite">без номера телефона будет сложно с тобой созвониться, не так ли?</span>
+                      <input id="phone" type="phone" name="tel" placeholder="Ваш телефон" data-validate="phone"><span class="error hidden" aria-live="polite">Введите действительный номер телефона.</span>
                     </div>
                   </div>
                   <div class="form__accepted">
                     <label class="form__checkbox">
                       <input id="accepted1" type="checkbox" name="privacy" data-validate="checkbox">
                       <div class="pseudo"></div>
-                      <div class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></div>
+                      <div class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></div><span class="error hidden" aria-live="polite">Флажок должен быть отмечен</span>
                     </label>
                   </div>
                   <button class="btn btn_primary" type="submit">Отправить заявку</button>
@@ -1169,6 +1159,102 @@
             </div>
           </div>
         </footer>
+      </div>
+    </div>
+    <div class="smart-modal" id="callback">
+      <div class="smart-modal__overlay"></div>
+      <div class="smart-modal__content">
+        <div class="smart-modal__close">
+          <svg class="svg-icon">
+            <use xlink:href="#close"></use>
+          </svg>
+        </div>
+        <h2 class="smart-modal__title">Заказать звонок</h2>
+        <div class="smart-modal__text"><p>Свяжемся с вами в течение 15 минут.</p> <p>Наш менеджер ответит на все ваши вопросы.</p></div>
+        <form class="form form_js-validate" id="form_callback" novalidate action="/test.php">
+          <div class="form__line">
+            <div class="form__field">
+              <input id="name" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">Поле не должно быть пустым.</span>
+            </div>
+          </div>
+          <div class="form__line">
+            <div class="form__field">
+              <input id="phone" type="phone" name="tel" placeholder="Ваш телефон" data-validate="phone"><span class="error hidden" aria-live="polite">Введите действительный номер телефона.</span>
+            </div>
+          </div>
+          <div class="form__accepted">
+            <label class="form__checkbox">
+              <input id="accepted1" type="checkbox" name="privacy" data-validate="checkbox">
+              <div class="pseudo"></div>
+              <div class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></div><span class="error hidden" aria-live="polite">Флажок должен быть отмечен</span>
+            </label>
+          </div>
+          <button class="btn btn_primary" type="submit">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+    <div class="smart-modal" id="testdrive">
+      <div class="smart-modal__overlay"></div>
+      <div class="smart-modal__content">
+        <div class="smart-modal__close">
+          <svg class="svg-icon">
+            <use xlink:href="#close"></use>
+          </svg>
+        </div>
+        <h2 class="smart-modal__title">Записаться на тест-драйв</h2>
+        <div class="smart-modal__text"><p>Подберём ближайший к вам салон и подходящее время</p></div>
+        <form class="form form_js-validate" id="form_testdrive" novalidate action="/test.php">
+          <div class="form__line">
+            <div class="form__field">
+              <input id="name" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">Поле не должно быть пустым.</span>
+            </div>
+          </div>
+          <div class="form__line">
+            <div class="form__field">
+              <input id="phone" type="phone" name="tel" placeholder="Ваш телефон" data-validate="phone"><span class="error hidden" aria-live="polite">Введите действительный номер телефона.</span>
+            </div>
+          </div>
+          <div class="form__accepted">
+            <label class="form__checkbox">
+              <input id="accepted1" type="checkbox" name="privacy" data-validate="checkbox">
+              <div class="pseudo"></div>
+              <div class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></div><span class="error hidden" aria-live="polite">Флажок должен быть отмечен</span>
+            </label>
+          </div>
+          <button class="btn btn_primary" type="submit">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+    <div class="smart-modal" id="credit">
+      <div class="smart-modal__overlay"></div>
+      <div class="smart-modal__content">
+        <div class="smart-modal__close">
+          <svg class="svg-icon">
+            <use xlink:href="#close"></use>
+          </svg>
+        </div>
+        <h2 class="smart-modal__title">Оформить рассрочку</h2>
+        <div class="smart-modal__text"><p>Пожалуйста, оставьте свои данные в форме ниже.</p> <p>Наш менеджер перезвонит вам для </p> <p>индивидуального просчета.</p></div>
+        <form class="form form_js-validate" id="form_credit" novalidate action="/test.php">
+          <div class="form__line">
+            <div class="form__field">
+              <input id="name" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">Поле не должно быть пустым.</span>
+            </div>
+          </div>
+          <div class="form__line">
+            <div class="form__field">
+              <input id="phone" type="phone" name="tel" placeholder="Ваш телефон" data-validate="phone"><span class="error hidden" aria-live="polite">Введите действительный номер телефона.</span>
+            </div>
+          </div>
+          <div class="form__accepted">
+            <label class="form__checkbox">
+              <input id="accepted1" type="checkbox" name="privacy" data-validate="checkbox">
+              <div class="pseudo"></div>
+              <div class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></div><span class="error hidden" aria-live="polite">Флажок должен быть отмечен</span>
+            </label>
+          </div>
+          <button class="btn btn_primary" type="submit">Отправить заявку</button>
+        </form>
       </div>
     </div>
     <script type="text/javascript" src="js/vendors.js"></script>

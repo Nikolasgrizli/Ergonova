@@ -1,0 +1,93 @@
+.smart-modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 999;
+	display: none;
+	overflow: auto;
+	padding: 24px;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+
+	&::before {
+		@media (min-width: 768px) {
+			content: "";
+			display: inline-block;
+			font-size: 0;
+			height: 100%;
+			vertical-align: middle;
+			width: 0;
+		}
+	}
+
+	&__overlay {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 35, 51, 0.79);
+		transition: 0.5s;
+	}
+    &__close{
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        display: flex;
+        cursor: pointer;
+    }
+
+	&__content {
+		padding: 3rem;
+		position: relative;
+		z-index: 5;
+		display: inline-block;
+		vertical-align: middle;
+		border-radius: $radius*4;
+		width: 100%;
+		box-shadow: 0px 30px 80px rgba(40, 55, 71, 0.6);
+		background: $color-white;
+		opacity: 0;
+		transition: 0.5s;
+
+		@media (min-width: 768px) {
+            padding: 5rem;
+			max-width: 720px;
+		}
+	}
+    &__title{
+        margin-bottom: 1.2rem;
+    }
+    &__text{
+        margin-bottom: 5rem;
+        p{
+            margin: 0;
+        }
+    }
+    .form{
+        margin: 0 auto;
+        max-width: 40rem;
+        button{
+            margin-top: 2.5rem;
+            &.btn_primary{
+                font-weight: 600;
+                width: 100%;
+            }
+        }
+        .error{
+            left: 0;
+        }
+    }
+    &.is-show {
+		display: block;
+	}
+
+	&.is-animate &__overlay {
+		opacity: 1;
+	}
+
+	&.is-animate &__content {
+		opacity: 1;
+	}
+}

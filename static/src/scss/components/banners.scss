@@ -23,6 +23,7 @@
             }
             &__inner{
                 @include rmin(1024){
+                    padding: 6rem 5rem;
                     position: absolute;
                     left: 0;
                     top: 0;
@@ -31,12 +32,20 @@
                     align-items: center;
                     justify-content: space-between;
                     width: 100%;
-                    padding: 3rem 5rem;
                     .title{
                         flex: 1;
+                        @include rmin(1024){
+                            margin-bottom: 0;
+                        }
                     }
                     .text{
-                        flex-basis: 40%;
+                        flex-basis: 48%;
+                        p{
+                            &:first-child{
+                                margin-top: 0;
+                                margin-bottom: 0;
+                            }
+                        }
                     }
                 }
             }
@@ -75,7 +84,7 @@
                 background-position: bottom right;
             }
             &__inner{
-                padding: 3rem 5rem;
+                padding: 6rem 5rem;
                 position: absolute;
                 left: 0;
                 top: 10%;
@@ -90,15 +99,15 @@
                     width: 100%;
                     clear: both;
                 }
-                .clipper{
-                    @include aspect-ratio(780,410,true);
+                // .clipper{
+                //     @include aspect-ratio(780,410,true);
 
-                    width: 75%;
-                    float: right;
-                    clip-path: polygon(59% 0, 100% 0%, 100% 100%, 0% 100%);
-                    shape-outside: polygon(59% 0, 100% 0%, 100% 100%, 0% 100%);
-                    shape-margin: 30px;
-                }
+                //     width: 75%;
+                //     float: right;
+                //     clip-path: polygon(59% 0, 100% 0%, 100% 100%, 0% 100%);
+                //     shape-outside: polygon(59% 0, 100% 0%, 100% 100%, 0% 100%);
+                //     shape-margin: 30px;
+                // }
             }
         }
     }
