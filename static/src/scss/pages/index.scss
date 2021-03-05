@@ -572,6 +572,9 @@
             @include rmin(1024){
                 @include grid-col($col: 3, $grid-columns: $default-grid-columns, $gutter: $default-grid-gutter );
             }
+            @include rIn(768,1024){
+                @include grid-col($col: 6, $grid-columns: $default-grid-columns, $gutter: $default-grid-gutter );
+            }
             @include r($mob - 1){
                 margin-top: 1rem;
                 margin-bottom: 1rem;
