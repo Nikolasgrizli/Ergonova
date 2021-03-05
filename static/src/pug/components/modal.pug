@@ -3,25 +3,29 @@ mixin modal(data)
 
     .smart-modal(id!=data.id)
         .smart-modal__overlay
-        .smart-modal__content
-            .smart-modal__close
+        .smart-modal__content(class!={'smart-modal__content_video js-popup-video': data.videoYoutube})
+            .smart-modal__close(class!={'js-video-close': data.videoYoutube})
                 +icon('close')
-            h2.smart-modal__title!=data.title
+            h2.smart-modal__title(class!={'h2_md': data.videoYoutube})!=data.title
             .smart-modal__text!=data.text
 
-            form.form.form_js-validate(id!=`form_${data.id}` novalidate action="/test.php")
-                .form__line
-                    .form__field
-                        input#name(type="text", name="given-name" placeholder="Ваше имя" data-validate="no-empty")
-                        span.error.hidden(aria-live="polite") Поле не должно быть пустым.
-                .form__line
-                    .form__field
-                        input#phone(type="phone", name="tel" placeholder="Ваш телефон" data-validate="phone")
-                        span.error.hidden(aria-live="polite") Введите действительный номер телефона.
-                .form__accepted
-                    label.form__checkbox
-                        input#accepted1(type="checkbox", name="privacy" data-validate="checkbox")
-                        .pseudo
-                        .text Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a>
-                        span.error.hidden(aria-live="polite") Флажок должен быть отмечен
-                button.btn.btn_primary(type="submit") Отправить заявку
+            if(data.videoYoutube)
+                .video-ratio(class!={'video__wrapper': data.videoYoutube})
+                    iframe(width="100%", src=data.videoYoutube + '?autoplay=0', frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+            else
+                form.form.form_js-validate(id!=`form_${data.id}` novalidate action="/test.php")
+                    .form__line
+                        .form__field
+                            input#name(type="text", name="given-name" placeholder="Ваше имя" data-validate="no-empty")
+                            span.error.hidden(aria-live="polite") Поле не должно быть пустым.
+                    .form__line
+                        .form__field
+                            input#phone(type="phone", name="tel" placeholder="Ваш телефон" data-validate="phone")
+                            span.error.hidden(aria-live="polite") Введите действительный номер телефона.
+                    .form__accepted
+                        label.form__checkbox
+                            input#accepted1(type="checkbox", name="privacy" data-validate="checkbox")
+                            .pseudo
+                            .text Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a>
+                            span.error.hidden(aria-live="polite") Флажок должен быть отмечен
+                    button.btn.btn_primary(type="submit") Отправить заявку

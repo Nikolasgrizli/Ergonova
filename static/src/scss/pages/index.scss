@@ -1,12 +1,19 @@
 // begin product
 .product{
     display: grid;
-    grid-template-columns: 56% 1fr;
+    grid-template-columns: minmax(300px, 56%) 1fr;
     grid-column-gap: 4.5rem;
     grid-template-rows: minmax(10rem, auto) 1fr;
     grid-template-areas:
     "slider title"
     "slider description";
+    @include r($mob - 1){
+        grid-template-columns: minmax(300px, 100vw);
+        grid-template-areas:
+            "title"
+            "slider"
+            "description";
+    }
     &__slider{
         grid-area: slider;
     }
@@ -24,11 +31,41 @@
         display: flex;
         max-width: 100%;
         align-items: flex-start;
+        @include r($mob - 1){
+            margin: 0 auto;
+            width: 500px;
+            max-width: 100%;
+        }
+        .slick-dots{
+            width: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @extend %reset-list;
+            li + li{
+                margin-left: .4rem;
+            }
+            button{
+                @extend %reset-btn;
+                font-size: 0;
+                width: .6rem;
+                height: .6rem;
+                border-radius: 50%;
+                background-color: $color-border-light;
+            }
+            .slick-active button{
+                background-color: $color-primary;
+            }
+        }
         .slider-nav{
             padding-top: 2.5rem;
             padding-bottom: 2.5rem;
             width: 16%;
             margin-right: 6%;
+            @include r($mob - 1){
+                display: none;
+            }
             .slick-arrow{
                 @extend %reset-btn;
                 position: absolute;
@@ -54,6 +91,7 @@
         .slider-for{
             flex: 1;
             min-width: 1px;
+
         }
         .slick-slide{
             position: relative;
@@ -87,6 +125,9 @@
             border: 1px solid;
             &:not(:last-child){
                 margin-right: 2rem;
+                @include r($mob - 1){
+                    margin-right: 0.6rem;
+                }
             }
             &_sale{
                 color: $color-white;
@@ -104,6 +145,9 @@
             flex-wrap: wrap;
             color: $color-gray;
             font-size: 1.4rem;
+            @include r($mob - 1){
+                display: none;
+            }
             a{
                 //TODO when hover icon change to download
                 margin-left: 1rem;
@@ -121,6 +165,10 @@
         margin-top: 2.4rem
     }
     &__price{
+        @include r($mob - 1){
+            display: flex;
+            align-items: center;
+        }
         .price{
 
             &_old{
@@ -129,6 +177,10 @@
                 display: inline-block;
                 color: $color-gray;
                 font-weight: 700;
+                @include r($mob - 1){
+                    margin-left: 1rem;
+                    order: 2;
+                }
                 &::after{
                     content: '';
                     position: absolute;
@@ -170,6 +222,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            @include rIn(1024,1199){
+                flex-wrap: wrap;
+                .btn{
+                    min-width: 24rem;
+                    &:first-child{
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+            .btn{
+                @include r($mob - 1){
+                    flex: 1;
+                    max-width: calc(50% - 1rem);
+                }
+            }
             & ~ .line{
                 margin-top: 1.5rem;
             }
@@ -212,6 +279,9 @@
         margin-top: 3rem;
         margin-bottom: 6rem;
         color: $color-gray;
+        @include r($mob - 1){
+            display: none;
+        }
         .title{
             margin-bottom: 0.8rem;
         }
@@ -228,12 +298,27 @@
 .product-nav{
     margin-top: 4rem;
     margin-bottom: 6rem;
+    @include r($mob - 1){
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        max-width: calc(100vw - 3rem);
+    }
     ul{
         @extend %reset-list;
         display: flex;
         align-items: center;
         justify-content: space-between;
         border-bottom: 2px solid #D6DBE0;
+        @include r($mob - 1){
+            display: block;
+            width: 750px;
+            overflow-x: auto;
+            white-space: nowrap;
+            li{
+                margin-bottom: 0;
+                display: inline-block;
+            }
+        }
     }
     li{
         margin-bottom: -2px;
@@ -278,6 +363,10 @@
             position: relative;
             color: $color-dark;
             @extend %bg-cover;
+            @include r($mob - 1){
+                flex-basis: calc(50% - .5rem);
+                margin-bottom: 1rem;
+            }
             &_1{
                 background-image: url(/img/advantages/1.jpg);
             }
@@ -310,9 +399,30 @@
             margin-bottom: 4rem;
             flex-basis: calc(33.3333% - 2rem);
             max-width: calc(33.3333% - 2rem);
+            @include rIn(768, $mob - 1){
+                flex-basis: calc(50% - 2rem);
+                max-width: calc(50% - 2rem);
+            }
+            @include r(767){
+                flex-basis: 100%;
+                max-width: 100%;
+                text-align: center;
+            }
             p{
                 margin-top: 0;
                 color: $color-text;
+            }
+        }
+    }
+    .mode-img__wrapper{
+        @include r($mob - 1){
+            margin-bottom: 1.5rem;
+            border-radius: $radius * 4;
+            display: inline-flex;
+            padding: 2px;
+            background-image: linear-gradient(to left, #62ADFC, #69CBFB, #69CBFB);
+            img{
+                border-radius: inherit;
             }
         }
     }
@@ -320,6 +430,9 @@
 
 .section_feature{
     padding-top: 8rem;
+    @include r($mob - 1){
+        padding-top: 5rem;
+    }
 }
 
 .feature{
@@ -334,6 +447,9 @@
         }
         &:not(:first-child){
             margin-top: 12rem;
+            @include r($mob - 1){
+                margin-top: 5rem;
+            }
         }
     }
     &__img,
@@ -390,12 +506,17 @@
 }
 
 .section_video{
-    margin-bottom: 4rem;
     border-bottom: 1px solid $color-border-light;
+    @include rmin($mob){
+        margin-bottom: 4rem;
+    }
 }
 .quality{
     margin: 8rem auto;
     max-width: 62rem;
+    @include r($mob - 1){
+        margin: 4rem auto 2rem;
+    }
     &__logo{
         margin-bottom: 3rem;
     }
@@ -405,12 +526,17 @@
 
 }
 .programms{
+
     &__top{
         padding-bottom: 6rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
         border-bottom: 1px solid $color-border-light;
+        @include r($mob - 1){
+            padding-top: 1rem;
+            padding-bottom: 2.5rem;
+        }
         .right{
             order: 2;
         }
@@ -433,6 +559,11 @@
         @extend %reset-list;
         @include counter(prog, '');
         @include grid( $flex-wrap: wrap, $gutter: $default-grid-gutter);
+        @include r($mob - 1){
+            padding-top: 1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
         .item{
             margin-top: 4rem;
             margin-bottom: 4rem;
@@ -440,6 +571,10 @@
 
             @include rmin(1024){
                 @include grid-col($col: 3, $grid-columns: $default-grid-columns, $gutter: $default-grid-gutter );
+            }
+            @include r($mob - 1){
+                margin-top: 1rem;
+                margin-bottom: 1rem;
             }
             &::before{
 
@@ -473,6 +608,9 @@
     background-color: $color-white;
     border: 2px solid $color-border-light;
     border-radius: $radius*4;
+    @include r($mob - 1){
+        padding: 3rem;
+    }
 }
 .form-main{
 
@@ -506,4 +644,7 @@
 
 .section_map{
     margin-bottom: 8rem;
+    @include r($mob - 1){
+        margin-bottom: 5rem;
+    }
 }

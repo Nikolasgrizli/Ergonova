@@ -2,7 +2,7 @@ mixin header(data)
     - data = data || {}
     -
         var nav = [
-            'Каталог','Магазины','Распродажа','Акции','Доставка','О компании','Тест-драйв','Trade-in','Контакты'
+            'Магазины','Распродажа','Акции','Доставка','О компании','Тест-драйв','Trade-in','Контакты'
         ]
      //BEGIN header
     header.header
@@ -11,6 +11,7 @@ mixin header(data)
                 img(src=imgPath('logos/logo.svg'), alt="")
             .catalog-btn
                 span.icon
+                    +icon('menu')
                 span.text Каталог
                 .nav-desktop
                     +nav()
@@ -43,22 +44,28 @@ mixin header(data)
                 span
 
         .header__mobile
-            .header__search
+            .header__search.mob-form.form-search
                 form
-                    input(type="text", name="search" placeholder="")
-                    button(type="submit"): +icon('search')
+                    input.form-search__field(type="text", name="search" placeholder="Искать на Ergonova")
+                    button.form-search__submit(type="submit"): +icon('search')
             .nav-mobile
-                .subnav
-                    span Каталог
-                    +nav()
+                .subnav__wrapper
+                    .subnav
+                        .mobile-subnav-trigger
+                            .inner
+                                .trigger.trigger-mobile-to
+                                    span Каталог
+                                    +icon('arrow-right')
+                        +nav()
                 .simple-nav
                     each item, i in nav
-                        a(href="#" class!= (i==2) ? 'sale' : '')!=item
+                        a(href="#" class!= (i==2) ? 'sale' : '')
+                            span!=item
+                            +icon('arrow-right')
             .header__phone-callback
                 a(href="tel:8 800 700 14 29")
                     span.text 8 800 700 14 29
-                    span.icon: +icon('phone2')
-                a.js-modal(href="callback") Заказать звонок
+                a.js-modal.btn.btn_primary(href="callback") Перезвоните мне
 
         .header-bottom
             .container.header-bottom__container
@@ -66,12 +73,11 @@ mixin header(data)
                     each item, i in nav
                         -
                             var cls = {
-                                'catalog' : (i==0),
-                                'sale is-active' : (i==2),
+                                'sale is-active' : (i==1),
                             }
                         li(class!=cls)
                             a(href="#")
-                                if (i==2)
+                                if (i==1)
                                     +icon('sale')
                                 span!=item
                 a.header-bottom__cart.is-active(href="#")

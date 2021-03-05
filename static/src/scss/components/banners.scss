@@ -3,6 +3,9 @@
     margin-bottom: 8rem;
     position: relative;
     border-radius: $radius * 2;
+    @include r($mob - 1){
+        margin-bottom: 4rem;
+    }
     h2,h3{
         color: inherit;
     }
@@ -16,10 +19,16 @@
         z-index: 1;
     }
     &_1{
-        @include aspect-ratio(1182,753);
+        @include rmin($mob ){
+            @include aspect-ratio(1182,753);
+        }
         .#{$wrap}{
             &__bg{
                 background-image: url(/img/description-bg.jpg);
+                @include r($mob - 1){
+                    @include aspect-ratio(354,225);
+                    position: static;
+                }
             }
             &__inner{
                 @include rmin(1024){
@@ -48,17 +57,43 @@
                         }
                     }
                 }
+                @include r($mob - 1){
+                    margin: 2.5rem auto;
+                    text-align: center;
+                    width: 35rem;
+                    max-width: 95%;
+                    @include rmin(768){
+                        width: 60rem;
+                    }
+                    .title{
+                        margin-bottom: 1.2rem;
+                        color: $color-dark;
+                    }
+                    strong{
+                        color: $color-dark;
+                    }
+                    br{
+                        display: none;
+                    }
+                }
             }
         }
 
 
     }
     &_2{
-        margin-top: 8rem;
-        @include aspect-ratio(1182,554);
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        @include rmin($mob){
+            margin-top: 8rem;
+            @include aspect-ratio(1182,554);
+        }
         .#{$wrap}{
             &__bg{
                 background-color: $color-white;
+                @include r($mob - 1){
+                    z-index: initial;
+                }
             }
             &-bg-clip{
                 position: absolute;
@@ -70,26 +105,54 @@
                 left: 0;
                 z-index: 1;
                 border-radius: $radius * 2;
+                @include r($mob - 1){
+                    z-index: initial;
+                    height: 100%;
+                    background-position: center right 20%;
+                }
+
             }
             &-chair{
                 @include aspect-ratio(920,554);
                 width: 70%;
-                position: absolute;
-                z-index: 2;
-                right: 0;
-                bottom: 0;
+
                 transform-origin: center;
                 background-image: url(/img/advantages/banner.png);
                 background-repeat: no-repeat;
                 background-position: bottom right;
+                @include rIn(1024,1199){
+                    padding-top: 49.21739%;
+                    width: 75%;
+                    background-size: contain;
+                }
+                @include rmin($mob){
+                    position: absolute;
+                    z-index: 2;
+                    right: 0;
+                    bottom: 0;
+                }
+                @include r($mob - 1){
+                    width: 100%;
+                    background-size: cover;
+                    background-position: center;
+                }
             }
             &__inner{
                 padding: 6rem 5rem;
-                position: absolute;
-                left: 0;
-                top: 10%;
                 color: $color-white;
                 width: 100%;
+                position: relative;
+                @include rmin($mob){
+                    position: absolute;
+                    left: 0;
+                    top: 10%;
+                }
+                @include r($mob - 1){
+                    padding: 3rem 1rem;
+                    br{
+                        display: none;
+                    }
+                }
                 .title{
                     color: inherit;
                 }
@@ -113,11 +176,25 @@
     }
     &_3{
         //TODO parallax effect
-        margin-top: 12rem;
-        @include aspect-ratio(1182,872);
+        @include r($mob - 1){
+            margin-top: 4rem;
+            background-image: url(/img/gravity/bg.jpg);
+            background-size: cover;
+            padding: 3rem 1rem;
+        }
+        @include rmin($mob){
+            margin-top: 12rem;
+            @include aspect-ratio(1182,872);
+        }
         .#{$wrap}{
             &__bg{
-                background-image: url(/img/gravity/bg.jpg);
+                @include r($mob - 1){
+                    position: relative;
+                    background: none;
+                }
+                @include rmin($mob){
+                    background-image: url(/img/gravity/bg.jpg);
+                }
                 .#{$wrap}-logo{
                     @include aspect-ratio(889,154,true);
                     z-index: 1;
@@ -125,10 +202,20 @@
                     background-image: url(/img/gravity/logo.svg);
                     background-repeat: no-repeat;
                     background-position: center;
+                    background-size: contain;
                     width: 906/1182*100%;
                     top: 110/872*100%;
                     left: 50%;
                     transform: translateX(-50%);
+                    @include r($mob - 1){
+                        position: static;
+                        display: block;
+                        text-align: center;
+                        transform: none;
+                        width: 90%;
+                        margin: 0 auto;
+                    }
+
                 }
                 .#{$wrap}-chair{
                     @include aspect-ratio(922,553,true);
@@ -137,14 +224,23 @@
                     background-image: url(/img/gravity/chair.png);
                     background-repeat: no-repeat;
                     background-position: center;
+                    background-size: contain;
                     width: 950/1182*100%;
                     top: 180/872*100%;
                     left: 50%;
                     transform: translateX(-50%);
+                    @include r($mob - 1){
+                        margin: -6rem auto 0rem;
+                        position: static;
+                        display: block;
+                        text-align: center;
+                        transform: none;
+                        width: 90%;
+                    }
                 }
             }
             &__inner{
-                @include rmin(1024){
+                @include rmin($mob){
                     padding: 3rem 5rem 30/872*100%;
                     position: absolute;
                     left: 0;
@@ -160,12 +256,23 @@
                         max-width: 74rem;
                     }
                 }
+                @include r($mob - 1){
+                    color: $color-white;
+                    .mob-title{
+                        margin-bottom: 1rem;
+                        font-weight: 700;
+                        display: block;
+                    }
+                }
             }
         }
     }
     &_4{
         margin-top: 12rem;
         @include aspect-ratio(1182,833);
+        @include r($mob - 1){
+            margin-top: 4rem;
+        }
         .#{$wrap}{
             &__bg{
                 background-image: url(/img/banner2.jpg);
@@ -178,7 +285,9 @@
                 top: 0;
                 color: $color-white;
                 display: inline-block;
-
+                @include r($mob - 1){
+                    padding: 3rem 1rem;
+                }
 
             }
         }

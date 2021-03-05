@@ -87,7 +87,10 @@ strong,
     padding-left: 15px;
     padding-right: 15px;
     width: 100%;
-    max-width: 1180px;
+    max-width: 100%;
+    @include rmin(1200){
+        max-width: 1180px;
+    }
     // @include rmin(1500){
     //     max-width: 1440px;
     // }

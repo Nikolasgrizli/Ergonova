@@ -9,9 +9,32 @@
         border-bottom: 1px solid #4B5157;
         display: flex;
         justify-content: space-between;
+        @include r($mob - 1){
+            flex-wrap: wrap;
+        }
     }
     &__col{
         display: flex;
+        @include r($mob - 1){
+            &:first-child,
+            &:nth-child(2){
+                flex-basis: 50%;
+                max-width: 50%;
+            }
+            &:last-child{
+                margin-top: 4rem;
+                flex-basis: 100%;
+                max-width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                .footer__title,
+                .footer__list{
+                    flex-basis: 50%;
+                    max-width: 50%;
+                }
+
+            }
+        }
         &_last{
             max-width: 21rem;
             display: block;

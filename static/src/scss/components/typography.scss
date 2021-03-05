@@ -23,6 +23,9 @@ h2, .h2 {
     line-height: 1.2;
     font-weight: 700;
     color: $color-dark;
+    &_md{
+        @include css-lock(20,35,450,1200);
+    }
 }
 
 h3, .h3 {

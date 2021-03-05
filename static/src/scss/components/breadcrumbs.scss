@@ -52,3 +52,32 @@
     }
 
 }
+
+
+
+//project mobile
+@include r($mob - 1){
+    .breadcrumbs{
+        min-height: 4.5rem;
+        li{
+            &:first-child,
+            &:last-child{
+                display: none;
+            }
+            &:nth-last-child(2){
+                &::after{
+                    content: none;
+                }
+            }
+            a{
+                span{
+                    color: $color-primary;
+
+                }
+                &::after{
+                    color: $color-gray;
+                }
+            }
+        }
+    }
+}

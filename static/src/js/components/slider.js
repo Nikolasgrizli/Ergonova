@@ -10,7 +10,15 @@ let $showcaseSlider = $('.slider-for').slick({
     dots: false,
     speed: 200,
     asNavFor: '.slider-nav',
-    fade: true
+    fade: true,
+    responsive: [{
+        breakpoint: 1024,
+        settings: {
+          dots: true
+        }
+
+      },
+    ]
 });
 $('.slider-nav').slick({
     slidesToShow: 4,
@@ -21,32 +29,32 @@ $('.slider-nav').slick({
     vertical: true,
     prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button" style=""><svg class="svg-icon"><use xlink:href="#arrow-up"></use></svg></button>',
     nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button" style=""><svg class="svg-icon"><use xlink:href="#arrow-down"></use></svg></button>',
-    // focusOnSelect: true,
+    focusOnSelect: true,
     draggable: true,
     verticalSwiping: true,
 });
 
-let $slideOnHover = $('.slider-nav .slick-slide');
-var sliderTimeout;
+// let $slideOnHover = $('.slider-nav .slick-slide');
+// var sliderTimeout;
 
-function changeSlideNext(index) {
-    // console.log(parseInt(index));
-    sliderTimeout = setTimeout(function () {
-        // recursiveSlideChangeNext();
-        $showcaseSlider.slick('slickGoTo',parseInt(index),false);
-    }, 500);
+// function changeSlideNext(index) {
+//     // console.log(parseInt(index));
+//     sliderTimeout = setTimeout(function () {
+//         // recursiveSlideChangeNext();
+//         $showcaseSlider.slick('slickGoTo',parseInt(index),false);
+//     }, 500);
 
-}
-$showcaseSlider.on('afterChange', function(){window.clearTimeout(sliderTimeout)})
+// }
+// $showcaseSlider.on('afterChange', function(){window.clearTimeout(sliderTimeout)})
 
 
-$slideOnHover.on('mouseenter', function (e) {
-    let index = e.target.closest('.slick-slide').dataset.slickIndex;
+// $slideOnHover.on('mouseenter', function (e) {
+//     let index = e.target.closest('.slick-slide').dataset.slickIndex;
 
-    if(typeof index !== undefined){
+//     if(typeof index !== undefined){
 
-        changeSlideNext(index);
-    } else {
-        console.log('error');
-    }
-});
+//         changeSlideNext(index);
+//     } else {
+//         console.log('error');
+//     }
+// });

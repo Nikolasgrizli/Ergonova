@@ -117,12 +117,12 @@ block content
         aside.banner.banner_2
             .banner__bg
                 .banner-bg-clip
-                .banner-chair
             .banner__inner
                 //- .clipper
                 h2.title Добро пожаловать на приём <br/>к профессиональному <br/>массажисту
                 .text
                     p 3D механизм - повторяет действия рук массажиста,<br/> снимая напряжение в тканях и мышечных узлах.<br/> Точечный массаж обеспечивает высокую<br/> проникающую способность и<br/> расслабление шеи и плеч.
+            .banner-chair
 
         section.section_modes
             h2 Режимы 3D-массажа
@@ -138,7 +138,8 @@ block content
                     ]
                 each item, i in modes
                     .item
-                        img(src=imgPath(`mode/${i+1}.png`), alt="")
+                        .mode-img__wrapper
+                            img(src=imgPath(`mode/${i+1}.png`), alt="")
                         h3.title!=item.title
                         p!=item.desc
 
@@ -193,12 +194,14 @@ block content
                 .banner-chair
             .banner__inner
                 .text
-                    p Понятие Zero Gravity (нулевой гравитации) было впервые разработано NASA. Массажное кресло откидывается, пока ноги не поднимутся на уровне сердца. Такое положение тела способствует более глубокому дыханию и расслаблению, при этом массажные ролики делают более эффективный массаж.
+                    p
+                        span.mob-title Понятие Zero Gravity (нулевой гравитации) было впервые разработано NASA.&nbsp;
+                        span Массажное кресло откидывается, пока ноги не поднимутся на уровне сердца. Такое положение тела способствует более глубокому дыханию и расслаблению, при этом массажные ролики делают более эффективный массаж.
 
 
         section.section_video.text-center
             h2 Мисс Бикини выбирает <br/>Full Body SE
-            .video
+            a.js-modalVideo-play(href="video1").video
                 img(src=imgPath('demo/video.png'), alt="")
             .quality
                 img.quality__logo(src=imgPath('quality.png'), alt="")
@@ -592,6 +595,11 @@ block modals
                 id: 'credit',
                 title: 'Оформить рассрочку',
                 text: '<p>Пожалуйста, оставьте свои данные в форме ниже.</p> <p>Наш менеджер перезвонит вам для </p> <p>индивидуального просчета.</p>',
+            },
+            {
+                id: 'video1',
+                title: 'Мисс Бикини выбирает Full Body SE',
+                //- videoYoutube: 'https://www.youtube.com/embed/2TxGMXYj7Ew',
             },
 
 

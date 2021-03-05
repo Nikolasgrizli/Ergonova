@@ -1,7 +1,17 @@
 .accordion{
     @include rmin(1024){
         @include grid( $flex-wrap: wrap, $gutter: $default-grid-gutter);
-
+    }
+    @include r($mob - 1){
+        display: block;
+        column-count: 2;
+        &__column{
+            overflow: hidden;
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+            break-inside: avoid;
+            break-inside: avoid-column;
+        }
     }
     &__column{
         @include rmin(1024){

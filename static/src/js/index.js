@@ -12,6 +12,7 @@ import './components/accordionComponent';
 import './components/slider';
 import './components/menu';
 import './components/modal';
+import './components/video';
 
 
 // Main js file
