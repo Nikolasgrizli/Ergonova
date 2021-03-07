@@ -10,12 +10,13 @@
         white-space: nowrap;
         flex-wrap: nowrap;
         overflow-x: auto;
-        min-height: 60px;
-        margin-bottom: 10px;
-        --mainFz: 15px;
+        min-height: 45px;
+        margin-bottom: 0;
+        --mainFz: 12px;
         &__wrapper{
             position: relative;
             width: 100%;
+            max-width: calc(100vw - 2rem);
             &::after{
                 content: '';
                 position: absolute;

@@ -19,6 +19,7 @@
     }
     &__title{
         grid-area: title;
+        position: relative;
     }
 
     &__info{
@@ -146,7 +147,13 @@
             color: $color-gray;
             font-size: 1.4rem;
             @include r($mob - 1){
-                display: none;
+                position: absolute;
+                top: .5em;
+                right: 0;
+                font-size: 1rem;
+                .get-description{
+                    display: none;
+                }
             }
             a{
                 //TODO when hover icon change to download
@@ -204,6 +211,9 @@
     &__credit{
         margin-top: 1.5rem;
         display: inline-block;
+        @include r(767){
+            font-size: 1.4rem;
+        }
         a{
             padding: .7rem 1.5rem;
             background-color: #f5f5f5;
@@ -235,6 +245,13 @@
                 @include r($mob - 1){
                     flex: 1;
                     max-width: calc(50% - 1rem);
+                    @include r(767){
+                        padding-left: 1rem;
+                        padding-right: 1rem;
+                        font-size: 1.2rem;
+                        max-width: calc(50% - .5rem);
+                        min-height: 4rem;
+                    }
                 }
             }
             & ~ .line{
@@ -252,6 +269,9 @@
             display: flex;
             align-items: center;
             text-decoration: none;
+            @include r(767){
+                font-size: 1.2rem;
+            }
         }
         .delivery{
             color: $color-dark;
@@ -302,6 +322,9 @@
         margin-top: 3rem;
         margin-bottom: 3rem;
         max-width: calc(100vw - 3rem);
+        @include r(767){
+            margin-top: 2rem;
+        }
     }
     ul{
         @extend %reset-list;
@@ -311,7 +334,7 @@
         border-bottom: 2px solid #D6DBE0;
         @include r($mob - 1){
             display: block;
-            width: 750px;
+            width: calc(100vw - 2rem);
             overflow-x: auto;
             white-space: nowrap;
             li{
@@ -342,7 +365,10 @@
         width: 100%;
         color: inherit;
         text-align: center;
-
+        @include r(767){
+            padding: 1rem 1.2rem;
+            font-size: 1.2rem;
+        }
     }
 }
 
@@ -366,6 +392,10 @@
             @include r($mob - 1){
                 flex-basis: calc(50% - .5rem);
                 margin-bottom: 1rem;
+                @include r(767){
+                    padding: 1rem .6rem 11rem;
+                    font-size: 1.2rem;
+                }
             }
             &_1{
                 background-image: url(/img/advantages/1.jpg);
@@ -385,8 +415,10 @@
 
 
 .section_modes{
-    padding-bottom: 4rem;
-    border-bottom: 1px solid $color-border-light;
+    @include rmin(768){
+        padding-bottom: 4rem;
+        border-bottom: 1px solid $color-border-light;
+    }
     h2{
         text-align: center;
     }
@@ -404,6 +436,7 @@
                 max-width: calc(50% - 2rem);
             }
             @include r(767){
+                margin-bottom: 3rem;
                 flex-basis: 100%;
                 max-width: 100%;
                 text-align: center;
@@ -424,14 +457,76 @@
             img{
                 border-radius: inherit;
             }
+            @include r(767){
+                width: 7rem;
+                height: 7rem;
+            }
+        }
+    }
+    &__cape{
+        margin-top: 8rem;
+        padding-top: 12rem;
+        border-top: 1px solid #E7E5EA;
+        @include rmin(768){
+            border-bottom: none;
+        }
+        @include rIn(768,1023){
+            margin-top: 4rem;
+            padding-top: 6rem;
+            padding-bottom: 0;
+        }
+        @include r(767){
+            margin-top: 3rem;
+            padding-top: 5rem;
+            text-align: center;
+        }
+        h2{
+            margin-bottom: 2rem;
+            @include rmin(768){
+                text-align: left;
+            }
+
+        }
+        .mode-list{
+            .item{
+                @include rmin(768){
+                    margin-bottom: 4rem;
+                    flex-basis: calc(50% - 2rem);
+                    max-width: calc(50% - 2rem);
+                    display: flex;
+                    flex-flow: row wrap;
+                    align-items: flex-start;
+                    .mode-img__wrapper{
+                        flex-basis: 7rem;
+                    }
+                    &-text{
+                        padding-left: 3rem;
+                        flex: 1;
+                    }
+
+                }
+                @include r(767){
+                    .mode-img__wrapper{
+                        background: none;
+                    }
+                }
+            }
         }
     }
 }
-
+.mobile-inter{
+    text-align: center;
+    @include rmin(768){
+        display: none;
+    }
+}
 .section_feature{
     padding-top: 8rem;
     @include r($mob - 1){
         padding-top: 5rem;
+        @include r(767){
+            padding-top: 0;
+        }
     }
 }
 
@@ -440,9 +535,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        &:nth-child(odd){
-            .feature__img{
-                order: 2;
+
+        @include rmin(768){
+            &:nth-child(odd){
+                .feature__img{
+                    order: 2;
+                }
             }
         }
         &:not(:first-child){
@@ -451,11 +549,21 @@
                 margin-top: 5rem;
             }
         }
+        @include r(767){
+            flex-wrap: wrap;
+            .feature__img{
+                order: -1;
+            }
+        }
     }
     &__img,
     &__text-wrapper{
         flex: 1 1 calc(50% - 3rem);
         max-width: calc(50% - 3rem);
+        @include r(767){
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
         h3{
             margin-bottom: 2rem;
             font-size: 1.4rem;
@@ -464,17 +572,27 @@
             text-transform: uppercase;
             color: $color-primary;
             font-weight: 600;
+            @include r(767){
+                margin-bottom: 1rem;
+                font-weight: 400;
+            }
         }
         .btn{
             margin-top: 6rem;
             padding-left: 1.4em;
             padding-right: 1.4em;
             min-width: 27rem;
+            @include r(767){
+                margin-top: 2rem;
+            }
         }
     }
     &__img{
         border-radius: $radius *4;
         overflow: hidden;
+        @include r(767){
+            margin-bottom: 3rem;
+        }
     }
     &__description{
         @extend .h2;
@@ -488,6 +606,10 @@
         display: flex;
         align-items: flex-start;
         color: $color-dark;
+        @include r(767){
+            margin-top: 2rem;
+            padding: 1rem 1rem 1rem 1.2em;
+        }
         .svg-icon{
             margin-top: 0.4em;
         }
@@ -503,12 +625,31 @@
         }
     }
 
+    .mt-middle-0{
+        @include rIn(768,1023){
+            margin-top: 0;
+        }
+    }
+
 }
 
 .section_video{
     border-bottom: 1px solid $color-border-light;
     @include rmin($mob){
         margin-bottom: 4rem;
+    }
+    @include r(767){
+        margin-bottom: 4rem;
+    }
+    &_cape{
+        border-bottom: 0;
+        margin-top: 10rem;
+        @include r($mob - 1){
+            margin-top: 7rem;
+            @include r(767){
+                margin-top: 4rem;
+            }
+        }
     }
 }
 .quality{
@@ -519,8 +660,100 @@
     }
     &__logo{
         margin-bottom: 3rem;
+        @include r(767){
+            margin-bottom: 2rem;
+            max-width: 8.8rem;
+        }
     }
 }
+
+.section_cape{
+    border-bottom: 1px solid $color-border-light;
+    margin-top: 10rem;
+    @include r($mob - 1){
+        margin-top: 7rem;
+        @include r(767){
+            margin-top: 5rem;
+        }
+    }
+}
+.cape{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 6rem;
+    @include r(767){
+        margin-bottom: 5rem;
+        padding-bottom: 3.5rem;
+    }
+    &__left{
+        @include rmin(1024){
+            max-width: 57.5rem;
+            padding-top: 10rem;
+        }
+    }
+    &__right{
+        max-width: 38rem;
+        @include r(1023){
+            display: none;
+        }
+    }
+    &__item{
+        padding-left: 5rem;
+        position: relative;
+        @include r(767){
+            padding-left: 2.5rem;
+        }
+        &:not(:first-child){
+            margin-top: 5rem;
+            @include r(767){
+                margin-top: 2rem;
+            }
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            width: 2.2rem;
+            height: 2.2rem;
+            top: 0.1em;
+            left: 0;
+            background-image: url('/img/cape/item-marker.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            @include r(767){
+                width: 1.3rem;
+                height: 1.3rem;
+                top: .2em;
+            }
+        }
+        .title{
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: $color-dark;
+            @include r(767){
+                font-size: inherit;
+                margin-bottom: .5rem;
+            }
+        }
+        p{
+            @include r(767){
+                margin-top: 0;
+            }
+        }
+    }
+    &__btn{
+        margin-top: 8rem;
+        @include r(767){
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .btn{
+            min-width: 30rem;
+        }
+    }
+}
+
 
 .section_programm{
 
@@ -536,6 +769,11 @@
         @include r($mob - 1){
             padding-top: 1rem;
             padding-bottom: 2.5rem;
+            @include r(767){
+                flex-wrap: wrap;
+                padding-bottom: 0;
+                border-bottom: 0;
+            }
         }
         .right{
             order: 2;
@@ -544,6 +782,10 @@
         .right{
             flex: 1 1 calc(50% - 3rem);
             max-width: calc(50% - 3rem);
+            @include r(767){
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
             h4{
                 margin-bottom: 2rem;
                 font-size: 1.4rem;
@@ -626,10 +868,25 @@
         max-width: 40rem;
     }
     &__right{
-        @include css-lock(50,100,768,1200,margin-left)
+        @include css-lock(50,100,768,1200,margin-left);
+        @include r(767){
+            display: none;
+        }
     }
     .form{
         margin-top: 5rem;
+        @include r(767){
+            margin-top: 3.4rem;
+            display: flex;
+            flex-flow: row wrap;
+            .form__accepted{
+                margin-top: 1.5rem;
+                order: 4;
+            }
+            .btn{
+                margin-top: .5rem;
+            }
+        }
         .btn{
             margin-top: 3rem;
             width: 100%;
@@ -639,6 +896,9 @@
 
 .section_addresses{
     margin-top: 9rem;
+    @include r(767){
+        margin-top: 5rem;
+    }
     h2{
         @include css-lock(16,26,768,1200)
     }
@@ -649,5 +909,17 @@
     margin-bottom: 8rem;
     @include r($mob - 1){
         margin-bottom: 5rem;
+        @include r(767){
+            @include aspect-ratio(100,100,true);
+            img,
+            iframe{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
     }
 }

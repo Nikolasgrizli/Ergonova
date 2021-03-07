@@ -14,7 +14,7 @@ mixin header(data)
                     +icon('menu')
                 span.text Каталог
                 .nav-desktop
-                    +nav()
+                    +nav('desktop')
 
             .header__search.form-search
                 form
@@ -49,19 +49,27 @@ mixin header(data)
                     input.form-search__field(type="text", name="search" placeholder="Искать на Ergonova")
                     button.form-search__submit(type="submit"): +icon('search')
             .nav-mobile
-                .subnav__wrapper
+                .overflow-wrapper-y.subnav__wrapper
                     .subnav
                         .mobile-subnav-trigger
                             .inner
-                                .trigger.trigger-mobile-to
+                                .trigger.trigger-mobile-from
                                     span Каталог
                                     +icon('arrow-right')
                         +nav()
-                .simple-nav
-                    each item, i in nav
-                        a(href="#" class!= (i==2) ? 'sale' : '')
-                            span!=item
-                            +icon('arrow-right')
+                .overflow-wrapper-y.simple-nav__wrapper
+                    .mobile-subnav-trigger
+                        .inner
+                            .trigger.trigger-mobile-to
+                                span Каталог
+                                +icon('arrow-right')
+                    .simple-nav
+                        each item, i in nav
+                            a(href="#" class!= (i==1) ? 'sale' : '')
+                                if (i==1)
+                                    +icon('sale')
+                                span!=item
+                                +icon('arrow-right')
             .header__phone-callback
                 a(href="tel:8 800 700 14 29")
                     span.text 8 800 700 14 29

@@ -33,6 +33,12 @@ body {
     width: 100%;
     position: relative;
     overflow-x: hidden;
+    @include r(450){
+        font-size: 1.4rem;
+    }
+    @include r(330){
+        font-size: 1.2rem;
+    }
 }
 
 *, *:before, *:after {
@@ -84,12 +90,16 @@ strong,
 .container{
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     width: 100%;
     max-width: 100%;
     @include rmin(1200){
         max-width: 1180px;
+    }
+    @include r(767){
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     // @include rmin(1500){
     //     max-width: 1440px;

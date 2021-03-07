@@ -21,9 +21,13 @@ import $ from "jquery";
     function closeMenu(){
         $catalogBtn.classList.remove('is-open');
         statusCatalogMenu = false;
-
+        setDefault();
     }
 
+
+    function setDefault(){
+        $defaultFirst.classList.add('first-open');
+    }
 
     function watchFirst(){
         if(!$firstLine.length > 0) return;
@@ -42,26 +46,10 @@ import $ from "jquery";
     }
     function closeMenuFirst(e){
         let $targetEvent = e.target.closest('.first');
-
         $targetEvent.classList.remove('first-open');
         statusFirstLine = false;
-
-        setTimeout(() => {
-            $defaultFirst.classList.add('first-open');
-        }, 100);
-
     }
 
-
-    // function watch(){
-    //     $(document).on('click', function(e){
-
-    //         if (e.target !== $catalogBtn || $catalogBtn.has(e.target).length === 0){
-    //             closeMenu();
-    //         }
-    //     });
-    //     watchFirst();
-    // }
 
 })();
 
@@ -73,7 +61,9 @@ import $ from "jquery";
         $catalogMobBtn = document.querySelector('.menu-trigger'),
         $mobNav = document.querySelector('.header__mobile'),
         $mobCatalog = document.querySelector('.nav-mobile'),
-        $mobCatalogBtn = document.querySelector('.mobile-subnav-trigger .inner');
+        $mobCatalogBtnTo = document.querySelector('.trigger-mobile-to'),
+        $mobCatalogBtnFrom = document.querySelector('.trigger-mobile-from'),
+        $firstTrigger = document.querySelectorAll('.first-trigger');
 
     if(typeof $catalogMobBtn === undefined || typeof $mobNav === undefined || window.matchMedia('(min-width:1024px').matches) return;
 
@@ -85,13 +75,21 @@ import $ from "jquery";
             openMenu();
         }
     });
-    $mobCatalogBtn.addEventListener('click', function(){
-        if(statusCatalog === true){
-            closeCatalog();
-        } else {
-            openCatalog();
-        }
+    $mobCatalogBtnTo.addEventListener('click', function(){
+        openCatalog();
     });
+    $mobCatalogBtnFrom.addEventListener('click', function(){
+        closeCatalog();
+    });
+
+    $firstTrigger.forEach( trigger => {
+        trigger.addEventListener('click', function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            this.closest('.first').classList.toggle('is-open');
+        });
+    })
+
 
 
     function openMenu(){
@@ -114,5 +112,34 @@ import $ from "jquery";
         $mobCatalog.classList.remove('is-open');
         statusCatalog = false;
     }
+
+    function _getAbsoluteHeight(el) {
+        el = (typeof el === 'string') ? document.querySelector(el) : el;
+        var styles = window.getComputedStyle(el);
+        var margin = parseFloat(styles['marginTop']) +
+                     parseFloat(styles['marginBottom']);
+        return Math.ceil(el.offsetHeight + margin);
+      }
+
+    function setMobMenuHeight(){
+        setTimeout(() => {
+            let
+                headerH = _getAbsoluteHeight('.header__container'),
+                mobFormH = _getAbsoluteHeight('.header__mobile .mob-form.form-search'),
+                headerMobCallbackH = _getAbsoluteHeight('.header__mobile .header__phone-callback'),
+                windowH = window.innerHeight;
+
+            if(headerH !== 0 && mobFormH !== 0 && headerMobCallbackH !== 0){
+                document.documentElement.style.setProperty('--maxMobHeaderMenuHeight', windowH - (headerH+mobFormH+headerMobCallbackH) + 'px');
+            }
+
+        }, 200);
+    }
+
+    setMobMenuHeight();
+
+    window.addEventListener("orientationchange", function() {
+        setMobMenuHeight();
+    });
 
 })();

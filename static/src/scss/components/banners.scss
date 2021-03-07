@@ -24,7 +24,7 @@
         }
         .#{$wrap}{
             &__bg{
-                background-image: url(/img/description-bg.jpg);
+                background-image: url(/img/banners/banner1.jpg);
                 @include r($mob - 1){
                     @include aspect-ratio(354,225);
                     position: static;
@@ -98,7 +98,7 @@
             &-bg-clip{
                 position: absolute;
                 @extend %bg-cover;
-                background-image: url(/img/advantages/bg.jpg);
+                background-image: url(/img/banners/banner2_bg.jpg);
                 width: 100%;
                 height: 90%;
                 bottom: 0;
@@ -117,7 +117,7 @@
                 width: 70%;
 
                 transform-origin: center;
-                background-image: url(/img/advantages/banner.png);
+                background-image: url(/img/banners/banner2_chair.png);
                 background-repeat: no-repeat;
                 background-position: bottom right;
                 @include rIn(1024,1199){
@@ -178,7 +178,7 @@
         //TODO parallax effect
         @include r($mob - 1){
             margin-top: 4rem;
-            background-image: url(/img/gravity/bg.jpg);
+            background-image: url(/img/banners/banner3_chair.png);
             background-size: cover;
             padding: 3rem 1rem;
         }
@@ -193,13 +193,13 @@
                     background: none;
                 }
                 @include rmin($mob){
-                    background-image: url(/img/gravity/bg.jpg);
+                    background-image: url(/img/banners/banner3_bg.jpg);
                 }
                 .#{$wrap}-logo{
                     @include aspect-ratio(889,154,true);
                     z-index: 1;
                     position: absolute;
-                    background-image: url(/img/gravity/logo.svg);
+                    background-image: url(/img/banners/banner3_logo.svg);
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: contain;
@@ -236,6 +236,9 @@
                         text-align: center;
                         transform: none;
                         width: 90%;
+                        @include r(767){
+                            margin-top: -3rem;
+                        }
                     }
                 }
             }
@@ -272,10 +275,16 @@
         @include aspect-ratio(1182,833);
         @include r($mob - 1){
             margin-top: 4rem;
+            @include r(767){
+                max-width: calc(100% + 2rem);
+                width: calc(100% + 2rem);
+                margin-left: -1rem;
+                border-radius: 0;
+            }
         }
         .#{$wrap}{
             &__bg{
-                background-image: url(/img/banner2.jpg);
+                background-image: url(/img/banners/banner4.jpg);
 
             }
             &__inner{
@@ -292,4 +301,67 @@
             }
         }
     }
+    &_5{
+        margin-top: 6rem;
+
+        @include r($mob - 1){
+            margin-top: 4rem;
+        }
+        .#{$wrap}{
+            &__bg{
+                position: static;
+                background-image: url(/img/banners/banner5.jpg);
+                @include aspect-ratio(1182,751);
+            }
+            &__inner{
+                margin-bottom: 4rem;
+                padding: 0rem 2rem;
+                text-align: center;
+                color: $color-dark;
+                @include r(767){
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+    }
+    &_6{
+        margin-bottom: 12rem;
+        @include rmin(768){
+            @include aspect-ratio(1182,833);
+        }
+        @include r(767){
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .#{$wrap}{
+            &__bg{
+                background-image: url(/img/banners/banner6.jpg);
+                @include r(767){
+                    @include aspect-ratio(350,262);
+                }
+            }
+            &__inner{
+                padding: 5rem 6rem;
+                position: absolute;
+                left: 0;
+                top: 0;
+                color: $color-dark;
+                display: inline-block;
+                @include r($mob - 1){
+                    padding: 3rem 1rem;
+                    @include r(767){
+                        padding: 1rem;
+                        text-align: center;
+                        display: block;
+                        width: 100%;
+                        position: static;
+                        order: -1;
+                    }
+                }
+
+            }
+        }
+    }
+
+
 }

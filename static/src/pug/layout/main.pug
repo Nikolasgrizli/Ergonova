@@ -31,6 +31,19 @@ html(lang='en')
                 +footer()
         block modals
 
+        script.
+            // fix vh on mobile when top line
+            window.vhCorrector = function(){
+                var vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', vh + 'px');
+            }
+            window.vhCorrector();
+
+
+
+
+
+
 
         script(type='text/javascript' src=pathPrefix + 'js/vendors.js')
         script(type='text/javascript' src=pathPrefix + 'js/app.js')

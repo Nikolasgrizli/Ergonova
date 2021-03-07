@@ -1,0 +1,524 @@
+extends ../layout/main
+include ../components/footer
+
+block variables
+    - title = 'title';
+    - pageClass = 'main-page'
+
+block head
+
+block header
+    +header()
+
+block content
+    .container
+        +breadcrumbsCape()
+
+        section.section_product.product
+            .product__slider
+                .slider-nav
+                    .slide
+                        img(src=imgPath('demo/slider2_1.png'), alt="")
+                    .slide
+                        img(src=imgPath('demo/slider2_2.png'), alt="")
+                    .slide
+                        img(src=imgPath('demo/slider2_3.png'), alt="")
+                    .slide
+                        img(src=imgPath('demo/slider2_4.jpg'), alt="")
+                    .slide
+                        img(src=imgPath('demo/slider2_2.png'), alt="")
+                    .slide
+                        img(src=imgPath('demo/slider2_3.png'), alt="")
+                .slider-for
+                    .slide
+                        img(src=imgPath('demo/slider2_1.png'), alt="")
+                    .slide
+                        img(src=imgPath('demo/slider2_2.png'), alt="")
+                    .slide
+                        img(src=imgPath('demo/slider2_3.png'), alt="")
+                    .slide
+                        img(src=imgPath('demo/slider2_4.jpg'), alt="")
+                    .slide
+                        img(src=imgPath('demo/slider2_2.png'), alt="")
+                    .slide
+                        img(src=imgPath('demo/slider2_3.png'), alt="")
+
+            .product__title.p-title
+                .p-title__tags
+                    .tag.tag_sale -20%
+                    .tag.tag_hit Хит продаж
+                h1 Массажная накидка  <br/>Ergonova Feelback 4 LTE
+
+                .p-title__article
+                    span Артикул: 33104
+                    a.get-description(href="#" download)
+                        img(src=imgPath('logos/pdf.svg'), alt="")
+
+            .product__info
+                .product__price
+                    .price.price_old
+                        | 42 900 ₽
+                    .price.price_new
+                        | 37 900 ₽
+
+                .product__credit
+                    a.js-modal(href="credit")  От <strong>1 052 ₽/мес</strong> в рассрочку под 0%
+
+                .product__btns
+                    .line.top
+                        a.btn.btn_primary(href="#")
+                            | Добавить в корзину
+                            i.icon.icon_right: +icon('cart2')
+                        a.btn.btn_primary-outline.js-modal(href="testdrive")
+                            | Запись на тест-драйв
+                    .line.bottom
+                        .delivery
+                            +icon('delivery')
+                            span Бесплатная доставка по РФ
+                        a.compare(href="#")
+                            +icon('compare')
+                            span  Сравнить
+
+
+
+
+        .product-nav
+            ul
+                li.is-active: a(href='#description') Описание
+                li: a(href='#description') Характеристики
+                li: a(href='#description') Доставка и самовывоз
+                li: a(href='#description') Гарантия
+                li: a(href='#description') Отзывы
+                li: a(href='#description') Аксессуары
+
+        aside.banner.banner_5
+            .banner__inner
+                h2.title Для тех, кто ценит<br/> свое здоровье и технологии
+            .banner__bg
+
+        section.section_advantages
+            h2 Уникальные особенности
+            .advantages-list
+                .item.item_1(style="background-image: url('/img/advantages/2_1.jpg')")
+                    .title Удлиненная <br/>массажная каретка
+                .item.item_2(style="background-image: url('/img/advantages/2_2.jpg')")
+                    .title Проигрывание музыки <br/>с помощью Bluetooth
+                .item.item_3(style="background-image: url('/img/advantages/2_3.jpg')")
+                    .title Поколачивающий <br/>массаж
+                .item.item_4(style="background-image: url('/img/advantages/2_4.jpg')")
+                    .title Использование <br/>в положении лежа
+
+
+        section.section_video.section_video_cape.text-center
+            h2 Обзор Ergonova Feelback 4 LTE <br/>от компании
+            a.js-modalVideo-play(href="video1").video
+                img(src=imgPath('demo/video2.jpg'), alt="")
+
+
+
+        section.section_cape.cape
+            .cape__left
+                h2 Объемный  <br/>роликовый механизм
+                .cape__list
+                    .cape__item
+                        .title Вращение по всей длине и ширине
+                        p Массажные ролики прорабатывают все мышцы от шеи до бёдер, и прекрасно снимают любое напряжение.
+                    .cape__item
+                        .title Глубокое проникновение
+                        p 3D-ролики специально разработаны для глубокого проникновения в мышечные ткани. Благодаря методу интенсивного разминания роликами, создается ощущение прикосновения рук массажиста.
+
+                .cape__btn
+                    a.btn.btn_primary(href="#")
+                        | Узнать подробнее
+
+            .cape__right
+                img(src=imgPath('cape/cape.png'), alt="")
+
+
+        section.section_feature
+            .feature
+                .feature__item
+                    .feature__img
+                        img(src=imgPath('feature/growt.jpg'), alt="")
+                    .feature__text-wrapper
+                        h3 Универсальность
+                        .feature__description Подходит для <br/>любого роста
+                        .feature__text
+                            p Накидка Ergonova Feelback 4 LTE оснащена удлиненной массажной кареткой, которая позволяет массировать каждый участок тела от шеи до бедер.
+                            p Для вашего удобства ролики регулируются по ширине. Если вам нужен массаж в какой-то одной точке, ролики можно зафиксировать в этом месте.
+
+                .feature__item
+                    .feature__img
+                        img(src=imgPath('feature/multi.jpg'), alt="")
+                    .feature__text-wrapper
+                        h3 подойдёт для любой задачи
+                        .feature__description Интенсивный и мягкий <br/>массаж на ваш выбор
+                        .feature__text
+                            p Чтобы сделать массаж более мягким, используйте специальную накидку, а для интенсивного массажа уберите ее. Первый вариант подойдет для массажа перед сном, а второй - для утреннего пробуждающего массажа.
+                            a.btn.btn_primary-gradient.js-modal.mt-middle-0(href="testdrive")
+                                | Хочу протестировать
+
+                .feature__item
+                    .feature__img
+                        img(src=imgPath('feature/mass2.jpg'), alt="")
+                    .feature__text-wrapper
+                        h3 комфорт во всём
+                        .feature__description Массаж <br/>в положении лежа
+                        .feature__text
+                            p Накидка Ergonova Feelback 4 LTE настолько универсальна, что её можно использовать в любом положении.
+                            p Релаксирующий массаж в положении лежа поможет полностью расслабиться, снимет зажимы и улучшит общее состояние.
+
+
+                .feature__item
+                    .feature__img
+                        img(src=imgPath('feature/mass3.jpg'), alt="")
+                    .feature__text-wrapper
+                        h3 Максимальная эффективность
+                        .feature__description Функция прогрева <br/>для лучшего эффекта
+                        .feature__text
+                            p Чтобы результат был еще более быстрым и эффективным, включайте функцию прогрева.
+                            p Прогрев усиливает кровообращение, оказывает противовоспалительный эффект и помогает быстрее расслабиться.
+
+
+
+        section.section_modes.section_modes__cape
+
+            .mode-list
+                .item
+                    h2 Режимы массажа
+                    p В массажной накидке Ergonova Feelback 4 LTE реализовано 5 видов массажа, которые признаны наиболее эффективными во всём мире
+                -
+                    var modes = [
+                        {title: 'Разминание', desc: 'Техника классического массажа, которая снимает напряжение, ускоряет кровоток и позволяет вам почувствовать себя бодро'},
+                        {title: 'Постукивание', desc: 'Режим для выведения токсинов и шлаков из тканей организма. Используйте его в моменты усталости, от нее не останется и следа.'},
+                        {title: 'Поколачивание', desc: 'Массаж ускоряет обменные процессы и глубоко воздействует на весь организм, а не только на спину. Успокаивает нервную систему и снимает мышечное напряжение.'},
+                        {title: 'Массаж Шиацу', desc: 'Японская техника точечного массажа, проработка тела посредством нажатий на напряженные участки тела. Шиацу делает тело «легким» и устраняет зажимы.'},
+                        {title: 'Покачивание', desc: 'Покачивание тела приводит к мышечному расслаблению и улучшению настроения. Это лёгкие, мягкие покачивающие движения, которые дарят вам состояние комфорта'},
+                    ]
+                each item, i in modes
+                    .item
+                        .mode-img__wrapper
+                            img(src=imgPath(`mode/2_${i+1}.png`), alt="")
+                        .item-text
+                            h3.title!=item.title
+                            p!=item.desc
+
+
+        aside.banner.banner_6
+            .banner__bg
+            .banner__inner
+                h2.title Идеальное <br/>дополнение интерьера
+
+
+        .mobile-inter
+            .quality
+                img.quality__logo(src=imgPath('quality.png'), alt="")
+                h3 Немецкое качество
+                p Многолетний опыт разработки и реализации массажного оборудования позволяет нам производить долговечную и эргономичную продукцию
+
+
+
+
+        section.section_form
+            .form-main
+                .form-main__left
+                    h2 Оставьте заявку
+                    p Свяжемся с вами в течение 15 минут
+                    form.form.form_js-validate#form1(novalidate action="/test.php")
+                        .form__line
+                            .form__field
+                                input#name(type="text", name="given-name" placeholder="Ваше имя" data-validate="no-empty")
+                                span.error.hidden(aria-live="polite") Поле не должно быть пустым.
+                        .form__line
+                            .form__field
+                                input#phone(type="phone", name="tel" placeholder="Ваш телефон" data-validate="phone")
+                                span.error.hidden(aria-live="polite") Введите действительный номер телефона.
+                        .form__accepted
+                            label.form__checkbox
+                                input#accepted1(type="checkbox", name="privacy" data-validate="checkbox")
+                                .pseudo
+                                .text Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a>
+                                span.error.hidden(aria-live="polite") Флажок должен быть отмечен
+                        button.btn.btn_primary(type="submit") Отправить заявку
+
+                .form-main__right
+                    img(src=imgPath('form2.jpg'), alt="")
+
+
+        section.section_addresses
+            h2 Адреса салонов по городам
+            -
+                var accordion = [
+                    {
+                        town: 'Москва',
+                        stores: [
+                            {
+                                link: '/stores/trc-mega-belaya-dacha-magazin-ergonova',
+                                title: 'ТРЦ МЕГА Белая Дача, Салон ERGONOVA',
+                                lines: ['Метро Кузьминки, г. Котельники, 1-й Покровский пр-д, 5','напротив кассовой зоны ИКЕА'],
+                                phones: ['8 (800) 700-14-29','8 (495) 755-20-98']
+                            },
+                        ]
+                    },
+                    {
+                        town: 'Санкт-Петербург',
+                        stores: [
+                            {
+                                link: '/stores/tс-cont-magazin-t',
+                                title: 'ТК Мебельный континент',
+                                lines: ['Варшавская, 3, к1, 3 этаж, секция 333А','Метро Электросила'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Екатеринбург',
+                        stores: [
+                            {
+                                link: '/stores/trc-raduga-park-magazin-massager',
+                                title: 'ТРЦ РАДУГА ПАРК, Салон ERGONOVA',
+                                lines: ['Ул. Репина, 94','напротив Билайн'],
+                                phones: ['8 (800) 700-14-29','8 967 639 62 13']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Нижний Новгорород',
+                        stores: [
+                            {
+                                link: '/stores/relaks-ip-savin',
+                                lines: ['ул. Невзоровых','д. 49, оф. 8'],
+                                phones: ['8 (800) 700-14-29'],
+                            },
+                            {
+                                link: '/stores/tс-mir-magazin-massager',
+                                lines: ['Бульвар Мира','д.7'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Самара',
+                        stores: [
+                            {
+                                title: 'МЕГА Самара, остров ERGONOVA',
+                                link: '/stores/mega-samara-ostrov-ergonova',
+                                lines: ['Московское шоссе, 24-й километр, 5','1 этаж, рядом с М.Видео'],
+                                phones: ['8 (800) 700-14-29', ' 8 903 301 61 08'],
+                            },
+                            {
+                                title: 'ТРК КОСМОПОРТ, остров ERGONOVA',
+                                link: '/stores/trk-kosmoport-ostrov-ergonova',
+                                lines: [' ул. Дыбенко, 30','1 этаж'],
+                                phones: ['8 (800) 700-14-29', '8 903 301 58 38']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Казань',
+                        stores: [
+                            {
+                                title: 'ЦУМ',
+                                link: '/stores/cym-magazin-massager',
+                                lines: ['Московская, 2.'],
+                                phones: ['8 (800) 700-14-29'],
+                            },
+                            {
+                                title: 'ТЦ ЮЖНЫЙ',
+                                link: '/stores/tс-ujnui-magazin-massager',
+                                lines: [' Пр-т Победы, 91'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Челябинск',
+                        stores: [
+                            {
+                                title: 'ТРЦ Алмаз,  Салон ERGONOVA',
+                                link: '/stores/trc-almaz-magazin-ergonova',
+                                lines: ['Копейское шоссе, 64', '2 этаж, рядом с Leroy Merlin'],
+                                phones: ['8 967 862 03 06','8 (800) 700-14-29'],
+                            },
+                            {
+                                title: 'ТРК Родник,  Салон ERGONOVA',
+                                link: '/stores/trk-rodnik-magazin-massager',
+                                lines: ['Ул. Труда, 203','(–2 этаж), напротив Castorama'],
+                                phones: ['8 967 862 03 05','8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Уфа',
+                        stores: [
+                            {
+                                title: 'МЕГА Уфа,  Салон ERGONOVA',
+                                link: '/stores/stc-mega-magazin-ergonova',
+                                lines: [' ул. Рубежная, 174','1 этаж, напротив кассовой зоны ИКЕА'],
+                                phones: ['8 (800) 700-14-29','8 (347) 299-32-82']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Пермь',
+                        stores: [
+                            {
+                                title: 'Бульвар',
+                                link: '/stores/stc-mega-magazin-ergonova',
+                                lines: [' Гагарина 26'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Саратов',
+                        stores: [
+                            {
+                                title: 'ТК «Ваш дом»',
+                                link: '/stores/ooo-cit',
+                                lines: [' Зарубина 150'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Тюмень',
+                        stores: [
+                            {
+                                title: 'ТК «ОРИОН»  Салон ERGONOVA',
+                                link: '/stores/tс-orion-magazin-massager',
+                                lines: ['ул. Федюнинского, 43, 1 уровень', 'рядом с магазином  «Амега»'],
+                                phones: ['8 967 862 03 06','8 (800) 700-14-29'],
+                            },
+                            {
+                                title: 'ТРЦ «Премьер»',
+                                link: '/stores/tс-premer-cont-massager',
+                                lines: ['ул. 50 лет ВЛКСМ, д. 63',' (вход со стороны АЗС)'],
+                                phones: ['8 967 862 03 05','8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Ульяновск',
+                        stores: [
+                            {
+                                title: 'Мир массажа, ТЦ ПАРУС',
+                                link: '/stores/ooo-cit',
+                                lines: ['Ульяновск, пр. Авиастроителей','7а, 2 этаж'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Оренбург',
+                        stores: [
+                            {
+                                title: 'ТРЦ ARMADA-2, Салон ERGONOVA',
+                                link: '/stores/ooo-cit',
+                                lines: ['Нежинское шоссе, 2А','1 этаж, рядом с магазином «Лента»'],
+                                phones: ['8 (800) 700-14-29','8 (3532) 42 42 58']
+                            },
+                            {
+                                title: 'Молл Армада,  Салон ERGONOVA',
+                                link: '/stores/moll-armada-magazin-ergonova',
+                                lines: ['Шарлыкское шоссе, 1','Молл Армада, галерея Лувр, 1 этаж'],
+                                phones: ['8 (3532) 29 28 58','8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Набережные челны',
+                        stores: [
+                            {
+                                title: 'ТЦ Омега',
+                                link: '/stores/tс-omega-magazin-massager',
+                                lines: ['Н. Челны. Пр-т ​Сююмбике, 2/19'],
+                                phones: ['8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+                    {
+                        town: 'Магнитогорск',
+                        stores: [
+                            {
+                                title: 'ТРК Гостиный Двор, Салон ERGONOVA',
+                                link: '/stores/trk-gostinyy-dvor-magazin-ergonova',
+                                lines: ['г. Магнитогорск, проспект Карла Маркса, 153','1 этаж'],
+                                phones: ['8 (3519) 39-30-32','8 (800) 700-14-29']
+                            }
+                        ]
+                    },
+
+                ]
+
+
+            .accordion#accordion1
+                -
+                    var fColumn = accordion.slice(0,3)
+                    var sColumn = accordion.slice(4,7)
+                    var tColumn = accordion.slice(8,11)
+                    var lColumn = accordion.slice(12)
+                    var columns = [fColumn,sColumn,tColumn,lColumn]
+
+                each column in columns
+                    .accordion__column
+                        each item, i in column
+                            .accordion__item
+                                .accordion__head
+                                    span!= 'г.' + item.town
+                                .accordion__body
+                                    each store in item.stores
+                                        a(href!=store.link)
+                                            if store.title
+                                                span!=store.title
+                                            else
+                                                span Сайт магазина
+                                        each line in store.lines
+                                            div!=line
+
+                                        .accordion__item-phone
+                                            .label Тел.:
+                                            .phones
+                                                each phone in store.phones
+                                                    a(href!=phone)
+                                                        span!=phone
+
+
+
+
+        section.section_map
+            h2.title-aria Адреса салонов по городам на карте
+            .map
+                img(src=imgPath('demo/map.jpg'), alt="")
+
+
+block modals
+    -
+        var modals = [
+            {
+                id: 'callback',
+                title: 'Заказать звонок',
+                text: '<p>Свяжемся с вами в течение 15 минут.</p> <p>Наш менеджер ответит на все ваши вопросы.</p>',
+            },
+            {
+                id: 'testdrive',
+                title: 'Записаться на тест-драйв',
+                text: '<p>Подберём ближайший к вам салон и подходящее время</p>',
+            },
+            {
+                id: 'credit',
+                title: 'Оформить рассрочку',
+                text: '<p>Пожалуйста, оставьте свои данные в форме ниже.</p> <p>Наш менеджер перезвонит вам для </p> <p>индивидуального просчета.</p>',
+            },
+            {
+                id: 'video1',
+                title: 'Мисс Бикини выбирает Full Body SE',
+                videoYoutube: 'https://www.youtube.com/embed/2TxGMXYj7Ew',
+            },
+
+
+        ]
+
+
+    each item in modals
+        +modal(item)

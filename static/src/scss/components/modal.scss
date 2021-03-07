@@ -11,6 +11,9 @@
 	text-align: center;
     align-items: center;
 	justify-content: center;
+	@include r(767){
+		padding: 0 1rem;
+	}
 	// &::before {
 	// 	@media (min-width: 1024px) {
 	// 		content: "";
@@ -51,11 +54,19 @@
 		background: $color-white;
 		opacity: 0;
 		transition: 0.5s;
+		@include r(767){
+			padding: 4rem 1em;
+		}
 		&_video{
 			@media (min-width: 768px) {
 				max-width: 760px;
 				@media (min-width: 800px) {
 					max-width: 780px;
+				}
+			}
+			@include r(767){
+				.smart-modal__text{
+					display: none;
 				}
 			}
 		}

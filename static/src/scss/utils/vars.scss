@@ -17,6 +17,11 @@ $breakpoints: (
         xl: 1200px
 );
 
+:root{
+        --vh: 1vh;
+        --maxMobHeaderMenuHeight: calc(var(--vh) * 52);
+}
+
 // Colors
 $color-primary: #0090D3;
 $color-primary-darken: #0275AA;

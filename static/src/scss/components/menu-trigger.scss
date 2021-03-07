@@ -5,9 +5,9 @@
     display: flex;
     align-items: center;
     position: relative;
-    .menu-open &{
-        transform: translateX(-1rem);
-    }
+    // .menu-open &{
+    //     transform: translateX(-1rem);
+    // }
     @include rmin($mob){
         display: none;
     }
