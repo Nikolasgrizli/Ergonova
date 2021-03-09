@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -14,7 +14,7 @@
     <div class="layout main-page">
       <div class="layout__header">
         <header class="header">
-          <div class="container header__container"><a class="header__logo" href="#"><img src="img/logos/logo.svg" alt=""></a>
+          <div class="container header__container"><a class="header__logo" href="#" aria-label="logo &amp; link in main page"><img src="img/logos/logo.svg" alt=""></a>
             <div class="catalog-btn"><span class="icon">
                 <svg class="svg-icon">
                   <use xlink:href="#menu"></use>
@@ -83,7 +83,7 @@
             <div class="header__search form-search">
               <form>
                 <input class="form-search__field" type="text" name="search" placeholder="Искать на Ergonova">
-                <button class="form-search__submit" type="submit">
+                <button class="form-search__submit" type="submit" aria-label="Search btn">
                   <svg class="svg-icon">
                     <use xlink:href="#search"></use>
                   </svg>
@@ -107,7 +107,7 @@
                 <li><a href="#">Оренбург</a></li>
               </ul>
             </div>
-            <div class="header__phone-callback"><a class="link" href="tel:8 800 700 14 29"><span class="text">8 800 700 14 29</span><span class="icon">
+            <div class="header__phone-callback"><a class="link" href="tel:88007001429"><span class="text">8 800 700 14 29</span><span class="icon">
                   <svg class="svg-icon">
                     <use xlink:href="#phone2"></use>
                   </svg></span></a><a class="js-modal callback" href="callback">Заказать звонок</a></div>
@@ -117,7 +117,7 @@
             <div class="header__search mob-form form-search">
               <form>
                 <input class="form-search__field" type="text" name="search" placeholder="Искать на Ergonova">
-                <button class="form-search__submit" type="submit">
+                <button class="form-search__submit" type="submit" aria-label="Search btn">
                   <svg class="svg-icon">
                     <use xlink:href="#search"></use>
                   </svg>
@@ -237,7 +237,7 @@
                 </div>
               </div>
             </div>
-            <div class="header__phone-callback"><a href="tel:8 800 700 14 29"><span class="text">8 800 700 14 29</span></a><a class="js-modal btn btn_primary" href="callback">Перезвоните мне</a></div>
+            <div class="header__phone-callback"><a href="tel:88007001429"><span class="text">8 800 700 14 29</span></a><a class="js-modal btn btn_primary" href="callback">Перезвоните мне</a></div>
           </div>
           <div class="header-bottom">
             <div class="container header-bottom__container">
@@ -253,7 +253,7 @@
                 <li><a href="#"><span>Тест-драйв</span></a></li>
                 <li><a href="#"><span>Trade-in</span></a></li>
                 <li><a href="#"><span>Контакты</span></a></li>
-              </ul><a class="header-bottom__cart is-active" href="#">
+              </ul><a class="header-bottom__cart is-active" href="#" aria-label="go to cart">
                 <svg class="svg-icon">
                   <use xlink:href="#cart"></use>
                 </svg><span class="increment">3</span></a>
@@ -307,7 +307,7 @@
                 <div class="tag tag_hit">Хит продаж</div>
               </div>
               <h1>Массажное кресло <br/>Ergonova Full Body SE</h1>
-              <div class="p-title__article"><span>Артикул: 33084</span><a class="get-description" href="#" download><img src="img/logos/pdf.svg" alt=""></a></div>
+              <div class="p-title__article"><span>Артикул: 33084</span><a class="get-description" href="#" download aria-label="download pdf"><img src="img/logos/pdf.svg" alt=""></a></div>
             </div>
             <div class="product__info">
               <div class="product__price">
@@ -491,7 +491,7 @@
             </div>
           </aside>
           <section class="section_video text-center">
-            <h2>Мисс Бикини выбирает <br/>Full Body SE</h2><a class="js-modalVideo-play video" href="video1"><img src="img/demo/video.png" alt=""></a>
+            <h2>Мисс Бикини выбирает <br/>Full Body SE</h2><a class="js-modalVideo-play video" href="video1" aria-label="open modal video"><img src="img/demo/video.png" alt=""></a>
             <div class="quality"><img class="quality__logo" src="img/quality.png" alt="">
               <h3>Немецкое качество</h3>
               <p>Многолетний опыт разработки и реализации массажного оборудования позволяет нам производить долговечную и эргономичную продукцию</p>
@@ -669,19 +669,17 @@
                 <form class="form form_js-validate" id="form1" novalidate action="/test.php">
                   <div class="form__line">
                     <div class="form__field">
-                      <input id="name" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">Поле не должно быть пустым.</span>
+                      <input id="name3" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">Поле не должно быть пустым.</span>
                     </div>
                   </div>
                   <div class="form__line">
                     <div class="form__field">
-                      <input id="phone" type="phone" name="tel" placeholder="Ваш телефон" data-validate="phone"><span class="error hidden" aria-live="polite">Введите действительный номер телефона.</span>
+                      <input id="phone3" type="tel" name="tel" placeholder="Ваш телефон" data-validate="phone"><span class="error hidden" aria-live="polite">Введите действительный номер телефона.</span>
                     </div>
                   </div>
                   <div class="form__accepted">
                     <label class="form__checkbox">
-                      <input id="accepted1" type="checkbox" name="privacy" data-validate="checkbox">
-                      <div class="pseudo"></div>
-                      <div class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></div><span class="error hidden" aria-live="polite">Флажок должен быть отмечен</span>
+                      <input id="accepted3" type="checkbox" name="privacy" data-validate="checkbox"><span class="pseudo"></span><span class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></span><span class="error hidden" aria-live="polite">Флажок должен быть отмечен</span>
                     </label>
                   </div>
                   <button class="btn btn_primary" type="submit">Отправить заявку</button>
@@ -701,7 +699,7 @@
                     <div>напротив кассовой зоны ИКЕА</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a><a href="8 (495) 755-20-98"><span>8 (495) 755-20-98</span></a>
+                      <div class="phones"><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a><a href="8(495)755-20-98"><span>8 (495) 755-20-98</span></a>
                       </div>
                     </div>
                   </div>
@@ -713,7 +711,7 @@
                     <div>Метро Электросила</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a>
+                      <div class="phones"><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a>
                       </div>
                     </div>
                   </div>
@@ -725,7 +723,7 @@
                     <div>напротив Билайн</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a><a href="8 967 639 62 13"><span>8 967 639 62 13</span></a>
+                      <div class="phones"><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a><a href="89676396213"><span>8 967 639 62 13</span></a>
                       </div>
                     </div>
                   </div>
@@ -739,14 +737,14 @@
                     <div>1 этаж, рядом с М.Видео</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a><a href=" 8 903 301 61 08"><span> 8 903 301 61 08</span></a>
+                      <div class="phones"><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a><a href="89033016108"><span> 8 903 301 61 08</span></a>
                       </div>
                     </div><a href="/stores/trk-kosmoport-ostrov-ergonova"><span>ТРК КОСМОПОРТ, остров ERGONOVA</span></a>
                     <div> ул. Дыбенко, 30</div>
                     <div>1 этаж</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a><a href="8 903 301 58 38"><span>8 903 301 58 38</span></a>
+                      <div class="phones"><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a><a href="89033015838"><span>8 903 301 58 38</span></a>
                       </div>
                     </div>
                   </div>
@@ -757,13 +755,13 @@
                     <div>Московская, 2.</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a>
+                      <div class="phones"><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a>
                       </div>
                     </div><a href="/stores/tс-ujnui-magazin-massager"><span>ТЦ ЮЖНЫЙ</span></a>
                     <div> Пр-т Победы, 91</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a>
+                      <div class="phones"><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a>
                       </div>
                     </div>
                   </div>
@@ -775,14 +773,14 @@
                     <div>2 этаж, рядом с Leroy Merlin</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 967 862 03 06"><span>8 967 862 03 06</span></a><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a>
+                      <div class="phones"><a href="89678620306"><span>8 967 862 03 06</span></a><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a>
                       </div>
                     </div><a href="/stores/trk-rodnik-magazin-massager"><span>ТРК Родник,  Салон ERGONOVA</span></a>
                     <div>Ул. Труда, 203</div>
                     <div>(–2 этаж), напротив Castorama</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 967 862 03 05"><span>8 967 862 03 05</span></a><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a>
+                      <div class="phones"><a href="89678620305"><span>8 967 862 03 05</span></a><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a>
                       </div>
                     </div>
                   </div>
@@ -795,7 +793,7 @@
                     <div> Гагарина 26</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a>
+                      <div class="phones"><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a>
                       </div>
                     </div>
                   </div>
@@ -806,7 +804,7 @@
                     <div> Зарубина 150</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a>
+                      <div class="phones"><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a>
                       </div>
                     </div>
                   </div>
@@ -818,14 +816,14 @@
                     <div>рядом с магазином  «Амега»</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 967 862 03 06"><span>8 967 862 03 06</span></a><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a>
+                      <div class="phones"><a href="89678620306"><span>8 967 862 03 06</span></a><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a>
                       </div>
                     </div><a href="/stores/tс-premer-cont-massager"><span>ТРЦ «Премьер»</span></a>
                     <div>ул. 50 лет ВЛКСМ, д. 63</div>
                     <div> (вход со стороны АЗС)</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 967 862 03 05"><span>8 967 862 03 05</span></a><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a>
+                      <div class="phones"><a href="89678620305"><span>8 967 862 03 05</span></a><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a>
                       </div>
                     </div>
                   </div>
@@ -839,14 +837,14 @@
                     <div>1 этаж, рядом с магазином «Лента»</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a><a href="8 (3532) 42 42 58"><span>8 (3532) 42 42 58</span></a>
+                      <div class="phones"><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a><a href="8(3532)424258"><span>8 (3532) 42 42 58</span></a>
                       </div>
                     </div><a href="/stores/moll-armada-magazin-ergonova"><span>Молл Армада,  Салон ERGONOVA</span></a>
                     <div>Шарлыкское шоссе, 1</div>
                     <div>Молл Армада, галерея Лувр, 1 этаж</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (3532) 29 28 58"><span>8 (3532) 29 28 58</span></a><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a>
+                      <div class="phones"><a href="8(3532)292858"><span>8 (3532) 29 28 58</span></a><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a>
                       </div>
                     </div>
                   </div>
@@ -857,7 +855,7 @@
                     <div>Н. Челны. Пр-т ​Сююмбике, 2/19</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a>
+                      <div class="phones"><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a>
                       </div>
                     </div>
                   </div>
@@ -869,7 +867,7 @@
                     <div>1 этаж</div>
                     <div class="accordion__item-phone">
                       <div class="label">Тел.:</div>
-                      <div class="phones"><a href="8 (3519) 39-30-32"><span>8 (3519) 39-30-32</span></a><a href="8 (800) 700-14-29"><span>8 (800) 700-14-29</span></a>
+                      <div class="phones"><a href="8(3519)39-30-32"><span>8 (3519) 39-30-32</span></a><a href="8(800)700-14-29"><span>8 (800) 700-14-29</span></a>
                       </div>
                     </div>
                   </div>
@@ -947,7 +945,7 @@
                 <div class="footer__title">Свяжитесь с нами:</div>
                 <div class="footer__list contacts">
                   <ul>
-                    <li><a href="tel:8 800 700 14 29">
+                    <li><a href="tel:88007001429">
                         <svg class="svg-icon">
                           <use xlink:href="#phone"></use>
                         </svg><span>8 800 700 14 29</span></a></li>
@@ -960,19 +958,19 @@
                 <div class="footer__title">Мы в соцсетях:</div>
                 <div class="footer__list socials">
                   <ul>
-                    <li><a class="socials__link socials__link_vk" href="https://vk.com/ergonova" target="_blank">
+                    <li><a class="socials__link socials__link_vk" href="https://vk.com/ergonova" target="_blank" rel="noreferrer" aria-label="go to social vk">
                         <svg class="svg-icon">
                           <use xlink:href="#vk"></use>
                         </svg></a></li>
-                    <li><a class="socials__link socials__link_fb" href="https://www.facebook.com/ergonova/" target="_blank">
+                    <li><a class="socials__link socials__link_fb" href="https://www.facebook.com/ergonova/" target="_blank" rel="noreferrer" aria-label="go to social facebook">
                         <svg class="svg-icon">
                           <use xlink:href="#facebook"></use>
                         </svg></a></li>
-                    <li><a class="socials__link socials__link_insta" href="https://www.instagram.com/ergonova_russia" target="_blank">
+                    <li><a class="socials__link socials__link_insta" href="https://www.instagram.com/ergonova_russia" target="_blank" rel="noreferrer" aria-label="go to social instagramm">
                         <svg class="svg-icon">
                           <use xlink:href="#instagram"></use>
                         </svg></a></li>
-                    <li><a class="socials__link socials__link_yt" href="youtube" target="_blank">
+                    <li><a class="socials__link socials__link_yt" href="youtube" target="_blank" rel="noreferrer" aria-label="go to social youtube">
                         <svg class="svg-icon">
                           <use xlink:href="#youtube"></use>
                         </svg></a></li>
@@ -1001,19 +999,17 @@
         <form class="form form_js-validate" id="form_callback" novalidate action="/test.php">
           <div class="form__line">
             <div class="form__field">
-              <input id="name" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">Поле не должно быть пустым.</span>
+              <input id="namecallback" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">Поле не должно быть пустым.</span>
             </div>
           </div>
           <div class="form__line">
             <div class="form__field">
-              <input id="phone" type="phone" name="tel" placeholder="Ваш телефон" data-validate="phone"><span class="error hidden" aria-live="polite">Введите действительный номер телефона.</span>
+              <input id="phonecallback" type="tel" name="tel" placeholder="Ваш телефон" data-validate="phone"><span class="error hidden" aria-live="polite">Введите действительный номер телефона.</span>
             </div>
           </div>
           <div class="form__accepted">
             <label class="form__checkbox">
-              <input id="accepted1" type="checkbox" name="privacy" data-validate="checkbox">
-              <div class="pseudo"></div>
-              <div class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></div><span class="error hidden" aria-live="polite">Флажок должен быть отмечен</span>
+              <input id="acceptedcallback" type="checkbox" name="privacy" data-validate="checkbox"><span class="pseudo"></span><span class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></span><span class="error hidden" aria-live="polite">Флажок должен быть отмечен</span>
             </label>
           </div>
           <button class="btn btn_primary" type="submit">Отправить заявку</button>
@@ -1033,19 +1029,17 @@
         <form class="form form_js-validate" id="form_testdrive" novalidate action="/test.php">
           <div class="form__line">
             <div class="form__field">
-              <input id="name" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">Поле не должно быть пустым.</span>
+              <input id="nametestdrive" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">Поле не должно быть пустым.</span>
             </div>
           </div>
           <div class="form__line">
             <div class="form__field">
-              <input id="phone" type="phone" name="tel" placeholder="Ваш телефон" data-validate="phone"><span class="error hidden" aria-live="polite">Введите действительный номер телефона.</span>
+              <input id="phonetestdrive" type="tel" name="tel" placeholder="Ваш телефон" data-validate="phone"><span class="error hidden" aria-live="polite">Введите действительный номер телефона.</span>
             </div>
           </div>
           <div class="form__accepted">
             <label class="form__checkbox">
-              <input id="accepted1" type="checkbox" name="privacy" data-validate="checkbox">
-              <div class="pseudo"></div>
-              <div class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></div><span class="error hidden" aria-live="polite">Флажок должен быть отмечен</span>
+              <input id="acceptedtestdrive" type="checkbox" name="privacy" data-validate="checkbox"><span class="pseudo"></span><span class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></span><span class="error hidden" aria-live="polite">Флажок должен быть отмечен</span>
             </label>
           </div>
           <button class="btn btn_primary" type="submit">Отправить заявку</button>
@@ -1065,19 +1059,17 @@
         <form class="form form_js-validate" id="form_credit" novalidate action="/test.php">
           <div class="form__line">
             <div class="form__field">
-              <input id="name" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">Поле не должно быть пустым.</span>
+              <input id="namecredit" type="text" name="given-name" placeholder="Ваше имя" data-validate="no-empty"><span class="error hidden" aria-live="polite">Поле не должно быть пустым.</span>
             </div>
           </div>
           <div class="form__line">
             <div class="form__field">
-              <input id="phone" type="phone" name="tel" placeholder="Ваш телефон" data-validate="phone"><span class="error hidden" aria-live="polite">Введите действительный номер телефона.</span>
+              <input id="phonecredit" type="tel" name="tel" placeholder="Ваш телефон" data-validate="phone"><span class="error hidden" aria-live="polite">Введите действительный номер телефона.</span>
             </div>
           </div>
           <div class="form__accepted">
             <label class="form__checkbox">
-              <input id="accepted1" type="checkbox" name="privacy" data-validate="checkbox">
-              <div class="pseudo"></div>
-              <div class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></div><span class="error hidden" aria-live="polite">Флажок должен быть отмечен</span>
+              <input id="acceptedcredit" type="checkbox" name="privacy" data-validate="checkbox"><span class="pseudo"></span><span class="text">Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a></span><span class="error hidden" aria-live="polite">Флажок должен быть отмечен</span>
             </label>
           </div>
           <button class="btn btn_primary" type="submit">Отправить заявку</button>
@@ -1095,7 +1087,7 @@
         <h2 class="smart-modal__title h2_md">Мисс Бикини выбирает Full Body SE</h2>
         <div class="smart-modal__text"></div>
         <div class="video-ratio video__wrapper">
-          <iframe width="100%" src="https://www.youtube.com/embed/2TxGMXYj7Ew?autoplay=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/2TxGMXYj7Ew?autoplay=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -1114,7 +1106,7 @@
       
       
     </script>
-    <script type="text/javascript" src="js/vendors.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+    <script src="js/vendors.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

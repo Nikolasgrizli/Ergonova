@@ -7,7 +7,7 @@ mixin header(data)
      //BEGIN header
     header.header
         .container.header__container
-            a.header__logo(href="#")
+            a.header__logo(href="#" aria-label="logo & link in main page")
                 img(src=imgPath('logos/logo.svg'), alt="")
             .catalog-btn
                 span.icon
@@ -19,7 +19,7 @@ mixin header(data)
             .header__search.form-search
                 form
                     input.form-search__field(type="text", name="search" placeholder="Искать на Ergonova")
-                    button.form-search__submit(type="submit"): +icon('search')
+                    button.form-search__submit(type="submit" aria-label="Search btn"): +icon('search')
             .header__location.location
                 .location__value
                     +icon('location',{cls:'location__icon'})
@@ -35,7 +35,7 @@ mixin header(data)
                     li: a(href="#") Оренбург
 
             .header__phone-callback
-                a.link(href="tel:8 800 700 14 29")
+                a.link(href="tel:88007001429")
                     span.text 8 800 700 14 29
                     span.icon: +icon('phone2')
                 a.js-modal.callback(href="callback") Заказать звонок
@@ -47,7 +47,7 @@ mixin header(data)
             .header__search.mob-form.form-search
                 form
                     input.form-search__field(type="text", name="search" placeholder="Искать на Ergonova")
-                    button.form-search__submit(type="submit"): +icon('search')
+                    button.form-search__submit(type="submit" aria-label="Search btn"): +icon('search')
             .nav-mobile
                 .overflow-wrapper-y.subnav__wrapper
                     .subnav
@@ -71,7 +71,7 @@ mixin header(data)
                                 span!=item
                                 +icon('arrow-right')
             .header__phone-callback
-                a(href="tel:8 800 700 14 29")
+                a(href="tel:88007001429")
                     span.text 8 800 700 14 29
                 a.js-modal.btn.btn_primary(href="callback") Перезвоните мне
 
@@ -88,7 +88,7 @@ mixin header(data)
                                 if (i==1)
                                     +icon('sale')
                                 span!=item
-                a.header-bottom__cart.is-active(href="#")
+                a.header-bottom__cart.is-active(href="#" aria-label="go to cart")
                     +icon('cart')
                     span.increment 3
 

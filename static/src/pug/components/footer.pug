@@ -57,7 +57,7 @@ mixin footer()
                     .footer__list.contacts
                         ul
                             li
-                                a(href="tel:8 800 700 14 29")
+                                a(href="tel:88007001429")
                                     +icon('phone')
                                     span 8 800 700 14 29
                             li
@@ -69,10 +69,10 @@ mixin footer()
 
                     .footer__list.socials
                         ul
-                            li: a.socials__link.socials__link_vk(href='https://vk.com/ergonova' target='_blank'): +icon('vk')
-                            li: a.socials__link.socials__link_fb(href='https://www.facebook.com/ergonova/' target='_blank'): +icon('facebook')
-                            li: a.socials__link.socials__link_insta(href='https://www.instagram.com/ergonova_russia' target='_blank'): +icon('instagram')
-                            li: a.socials__link.socials__link_yt(href='youtube' target='_blank'): +icon('youtube')
+                            li: a.socials__link.socials__link_vk(href='https://vk.com/ergonova' target='_blank' rel="noreferrer" aria-label="go to social vk"): +icon('vk')
+                            li: a.socials__link.socials__link_fb(href='https://www.facebook.com/ergonova/' target='_blank' rel="noreferrer" aria-label="go to social facebook"): +icon('facebook')
+                            li: a.socials__link.socials__link_insta(href='https://www.instagram.com/ergonova_russia' target='_blank' rel="noreferrer" aria-label="go to social instagramm"): +icon('instagram')
+                            li: a.socials__link.socials__link_yt(href='youtube' target='_blank' rel="noreferrer" aria-label="go to social youtube"): +icon('youtube')
 
 
             .footer__bottom

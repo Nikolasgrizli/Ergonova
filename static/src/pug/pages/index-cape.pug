@@ -51,7 +51,7 @@ block content
 
                 .p-title__article
                     span Артикул: 33104
-                    a.get-description(href="#" download)
+                    a.get-description(href="#" download aria-label="download pdf")
                         img(src=imgPath('logos/pdf.svg'), alt="")
 
             .product__info
@@ -111,7 +111,7 @@ block content
 
         section.section_video.section_video_cape.text-center
             h2 Обзор Ergonova Feelback 4 LTE <br/>от компании
-            a.js-modalVideo-play(href="video1").video
+            a.js-modalVideo-play(href="video1" aria-label="open modal video").video
                 img(src=imgPath('demo/video2.jpg'), alt="")
 
 
@@ -227,17 +227,17 @@ block content
                     form.form.form_js-validate#form1(novalidate action="/test.php")
                         .form__line
                             .form__field
-                                input#name(type="text", name="given-name" placeholder="Ваше имя" data-validate="no-empty")
+                                input#name2(type="text", name="given-name" placeholder="Ваше имя" data-validate="no-empty")
                                 span.error.hidden(aria-live="polite") Поле не должно быть пустым.
                         .form__line
                             .form__field
-                                input#phone(type="phone", name="tel" placeholder="Ваш телефон" data-validate="phone")
+                                input#phone2(type="tel", name="tel" placeholder="Ваш телефон" data-validate="phone")
                                 span.error.hidden(aria-live="polite") Введите действительный номер телефона.
                         .form__accepted
                             label.form__checkbox
-                                input#accepted1(type="checkbox", name="privacy" data-validate="checkbox")
-                                .pseudo
-                                .text Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a>
+                                input#accepted2(type="checkbox", name="privacy" data-validate="checkbox")
+                                span.pseudo
+                                span.text Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a>
                                 span.error.hidden(aria-live="polite") Флажок должен быть отмечен
                         button.btn.btn_primary(type="submit") Отправить заявку
 
@@ -480,7 +480,9 @@ block content
                                             .label Тел.:
                                             .phones
                                                 each phone in store.phones
-                                                    a(href!=phone)
+                                                    -
+                                                        var phoneTrim = phone.replace(/\s/g, '')
+                                                    a(href!=phoneTrim)
                                                         span!=phone
 
 
