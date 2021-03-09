@@ -178,7 +178,7 @@
         //TODO parallax effect
         @include r($mob - 1){
             margin-top: 4rem;
-            background-image: url(/img/banners/banner3_chair.png);
+            background-image: url(/img/banners/banner3_bg.jpg);
             background-size: cover;
             padding: 3rem 1rem;
         }
@@ -221,7 +221,7 @@
                     @include aspect-ratio(922,553,true);
                     z-index: 2;
                     position: absolute;
-                    background-image: url(/img/gravity/chair.png);
+                    background-image: url(/img/banners/banner3_chair.png);
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: contain;
