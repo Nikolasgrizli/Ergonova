@@ -177,7 +177,7 @@ if ($(window).width() < 1024) {
 })();
 
 //tabs
-(function(){
+(() =>{
     const 
         tabHeaders = document.querySelectorAll('.product-nav a'),
         tabBodyes = document.querySelectorAll('.product-nab-tabs > .tab');
@@ -192,7 +192,7 @@ if ($(window).width() < 1024) {
         })
     }
 
-    function setActiveTab(tab){
+    let setActiveTab = (tab) =>{
         if(tab.classList.contains('is-active')) return;
         const 
             path = tab.getAttribute("href").slice(1),
