@@ -70,22 +70,25 @@ strong,
 
 .layout {
     position: relative;
-    overflow: hidden;
+    min-height: 100vh;
+    width: 100%;
     display: flex;
-    flex-flow: column wrap;
-    min-height: 100%;
+    flex-direction: column;
     &__header,
     &__footer{
-        flex: 0 0 auto;
+        flex-shrink: 0;
     }
     &__header{
         z-index: 100;
     }
     &__main{
         margin-top: -10px;
-        flex: 1;
+        flex-grow: 1;
+
     }
 }
+
+
 
 .container{
     margin-left: auto;

@@ -18,6 +18,7 @@
     }
     &__col{
         display: flex;
+        flex-basis: 350px;
         @include rIn(768,$mob - 1){
             &:first-child,
             &:nth-child(2){

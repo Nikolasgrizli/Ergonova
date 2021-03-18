@@ -813,6 +813,7 @@
 
             @include rmin(1024){
                 @include grid-col($col: 3, $grid-columns: $default-grid-columns, $gutter: $default-grid-gutter );
+                flex-basis: calc(25% - 3rem);
             }
             @include rIn(768,1024){
                 @include grid-col($col: 6, $grid-columns: $default-grid-columns, $gutter: $default-grid-gutter );

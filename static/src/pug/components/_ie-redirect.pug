@@ -1,0 +1,24 @@
+mixin ie-redirect()
+    .ie-redirect.is-hidden#js-iePlug 
+        .ie-redirect__owerlay
+        .ie-redirect__inner
+            h1 ⚠ Unsupported Browser ⚠
+            p Site probably won't work great in Internet Explorer 11. We generally only support the recent versions of major browsers like Chrome, Firefox, Safari, and Edge. 
+    
+    script.
+        function isIE() {
+            const ua = window.navigator.userAgent; 
+            const msie = ua.indexOf('MSIE '); 
+            const trident = ua.indexOf('Trident/');
+
+            return (msie > 0 || trident > 0);
+        }
+
+
+        function ShowIEAlert(){
+            if(isIE()){
+                var plug = document.getElementById('js-iePlug');
+                plug.className = 'ie-redirect';
+            }
+        }
+        ShowIEAlert()
