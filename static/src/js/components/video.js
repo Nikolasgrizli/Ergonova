@@ -30,7 +30,7 @@ if (videoFrame[0]) {
         //     .fadeIn();
     });
 
-    $('.js-video-close').on('click', function () {
+    $('.js-video-close, .smart-modal__overlay').on('click', function () {
         if (videoVimeoTargetOriginUrl.indexOf('vimeo') > -1) {
             videoVimeoContentWindow.postMessage({
                 'method': 'pause'

@@ -58,3 +58,18 @@ $('.slider-nav').slick({
 //         console.log('error');
 //     }
 // });
+
+
+
+$('.pp-slider').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  dots: true,
+  arrows: true,
+  prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button" style=""><svg class="svg-icon"><use xlink:href="#arrow-left_thin"></use></svg></button>',
+  nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button" style=""><svg class="svg-icon"><use xlink:href="#arrow-right_thin"></use></svg></button>',
+  focusOnSelect: true,
+  draggable: true,
+  centerMode: true,
+  centerPadding: '0px'
+});

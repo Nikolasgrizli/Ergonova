@@ -1,0 +1,180 @@
+extends ../layout/main
+include ../components/footer
+
+block variables
+    - title = 'title';
+    - pageClass = 'partners-page'
+
+block head
+
+block header
+    +header()
+
+block content
+    .container
+        //BEGIN breadcrumbs
+        .breadcrumbs__wrapper
+            ol.breadcrumbs(itemscope itemtype="http://schema.org/BreadcrumbList")
+                li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+                    a(itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" itemid="/")
+                        span(itemprop="name") Главная
+                    meta(itemprop="position" content="1")
+                li
+                    span(itemscope itemtype="http://schema.org/Thing" itemprop="item" itemid="/currentpage")
+                        span(itemprop="name") Партнерам
+                    meta(itemprop="position" content="2")
+
+        section
+            .partners-page__top
+                h1 Партнерам
+                p В настоящий момент компания «ERGONOVA» активно развивает дилерскую сеть в России и предлагает взаимовыгодные условия сотрудничества
+            .partners-page__team
+                .feature
+                    .feature__item
+                        .feature__text-wrapper
+                            h2 Станьте частью<br/> команды
+                            p.h3 Компания «Ergonova» приглашает к сотрудничеству:
+                            .feature__text
+                                ul.dottet-list
+                                    li Магазины с ассортиментом товаров для здоровья
+                                    li Интернет-магазины;
+                                    li Организации, напрямую работающие с медицинскими, санаторными, спортивными учреждениями, косметическими и лечебными салонами
+
+                        .feature__img
+                            img(src=imgPath('partners/team.png'), alt="")
+
+        section.partners-page__advantages
+            h2.text-center Сотрудничество с «Ergonova».<br/> Преимущества для партнеров
+            -
+                var adv = [
+                    {
+                        title: 'Собственное производство',
+                        text: 'Высококачественная продукцию напрямую от&nbsp;производителя',
+                        icon: 'advantages_1.svg'
+                    },
+                    {
+                        title: 'Высокая дельта',
+                        text: 'Выгодные дилерские условия по&nbsp;ценообразованию',
+                        icon: 'advantages_2.svg'
+                    },
+                    {
+                        title: 'Доставка товара<br/>в любую точку РФ',
+                        text: 'Налаженная система логистики и доставки',
+                        icon: 'advantages_3.svg'
+                    },
+                    {
+                        title: 'Более 16 городов присутствия',
+                        text: 'Магазины по всей РФ позволяют делать отгрузки с ближайшего к вам склада',
+                        icon: 'advantages_4.svg'
+                    },
+                    {
+                        title: 'Авторизированный сервисный центр',
+                        text: 'Гарантийное и постгарантийное обслуживание',
+                        icon: 'advantages_5.svg'
+                    },
+                    {
+                        title: 'Собственные рекламные материалы',
+                        text: 'Обеспечение всей необходимой полиграфической рекламой',
+                        icon: 'advantages_6.svg'
+                    },
+
+                ]
+            .pp-advantages
+                each item in adv
+                    .pp-advantages__item.pp-adv-item
+                        .pp-adv-item__content
+                            h3.pp-adv-item__title!=item.title
+                            p!=item.text
+                        .pp-adv-item__icon
+                            .img-wrapper
+                                img(src=imgPath(`partners/${item.icon}`), alt!=item.title)
+            .pp-advantages__info
+                strong Мы всегда готовы оказать информационную поддержку в вопросах использования предлагаемой нами продукции, а также в любых технических вопросах
+            .full-width-container
+                .pp-slider__wrapper
+                    .pp-slider
+                        - var x = 4
+                        while x > 0
+                            .pp-slider__item
+                                img(src=imgPath(`partners/slide${x}.jpg`), alt="")
+                            - x--
+
+        .full-width-container
+            section.partners-page__about
+                .container
+                    .pp-about
+                        .pp-about__left
+                            h2 О компании
+                            p “Ergonova” - один из лидеров по производству и продаже массажного оборудования и товаров для здоровья в России. На рынке с 2009 года.
+                            p За 11 лет работы мы накопили огромный опыт производства и продажи массажного оборудования и товаров для здоровья. Это позволяет предлагать только надежные и востребованные товары для покупателей.
+                        .pp-about__video
+                            a.js-modalVideo-play(href="video1" aria-label="open modal video").video
+                                img(src=imgPath('partners/video-cover.jpg'), alt="")
+                                .video__play
+                                    +icon('play')
+
+        section.partners-page__contact
+            .pp-contact
+                .pp-contact__left
+                    h2 Стать партнером
+                    p Для того чтобы стать партнером компании ERGONOVA, свяжитесь со специалистом по развитию дилерской сети или заполните форму обратной связи
+                    address.pp-contact__address
+                        a.pp-contact__link(href="mailto:n.kropotova@ergonova.ru")
+                            +icon('email-simple')
+                            span n.kropotova@ergonova.ru
+                        a.pp-contact__link(href="tel:+79068633949")
+                            +icon('phone-simple')
+                            span +7 906 863 39 49
+
+                .pp-contact__form
+                    form.form.form_js-validate#form1(novalidate action="/test.php")
+                        .form__line
+                            .form__field
+                                input#name3(type="text", name="given-name" placeholder="Ваше имя" data-validate="no-empty")
+                                span.error.hidden(aria-live="polite") Поле не должно быть пустым.
+                        .form__line
+                            .form__field
+                                input#email(type="email", name="email" placeholder="Ваш e-mail" data-validate="email")
+                                span.error.hidden(aria-live="polite") Введите реальный е-mail
+                        .form__line
+                            .form__field
+                                textarea#comment(name="comment" placeholder="Комментарий" data-validate="no-empty")
+                                span.error.hidden(aria-live="polite") Поле не должно быть пустым.
+                        .form__accepted
+                            label.form__checkbox
+                                input#accepted3(type="checkbox", name="privacy" data-validate="checkbox")
+                                span.pseudo
+                                span.text Я ознакомлен и согласен с <a href="#" target=_blank>условиями политики обработки персональных данных и конфиденциальности</a>
+                                span.error.hidden(aria-live="polite") Флажок должен быть отмечен
+                        button.btn.btn_primary(type="submit") Отправить
+
+block modals
+    -
+        var modals = [
+            {
+                id: 'callback',
+                title: 'Заказать звонок',
+                text: '<p>Свяжемся с вами в течение 15 минут.</p> <p>Наш менеджер ответит на все ваши вопросы.</p>',
+            },
+            {
+                id: 'testdrive',
+                title: 'Записаться на тест-драйв',
+                text: '<p>Подберём ближайший к вам салон и подходящее время</p>',
+            },
+            {
+                id: 'credit',
+                title: 'Оформить рассрочку',
+                text: '<p>Пожалуйста, оставьте свои данные в форме ниже.</p> <p>Наш менеджер перезвонит вам для </p> <p>индивидуального просчета.</p>',
+            },
+            {
+                id: 'video1',
+                title: 'Мисс Бикини выбирает Full Body SE',
+                videoYoutube: 'https://www.youtube.com/embed/2TxGMXYj7Ew',
+            },
+
+
+        ]
+
+
+    each item in modals
+        +modal(item)
