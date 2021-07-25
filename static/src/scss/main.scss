@@ -132,6 +132,14 @@ strong,
     margin-left: -50vw;
     margin-right: -50vw;
 }
+
+.product-nab-tabs{
+    .tab:not(.is-active){
+        display: none;
+    }
+}
+
+
 // Components
 @import "components";
 
