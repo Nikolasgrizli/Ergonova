@@ -324,7 +324,7 @@
     }
     .video-ratio{
         display: block;
-		@include aspect-ratio(780,480,true);
+		@include aspect-ratio(560,315,true);
         border-radius: var(--ppRadius);
         overflow: hidden;
 		iframe,
