@@ -108,10 +108,12 @@ block content
                             p “Ergonova” - один из лидеров по производству и продаже массажного оборудования и товаров для здоровья в России. На рынке с 2009 года.
                             p За 11 лет работы мы накопили огромный опыт производства и продажи массажного оборудования и товаров для здоровья. Это позволяет предлагать только надежные и востребованные товары для покупателей.
                         .pp-about__video
-                            a.js-modalVideo-play(href="video1" aria-label="open modal video").video
-                                img(src=imgPath('partners/video-cover.jpg'), alt="")
-                                .video__play
-                                    +icon('play')
+                            //- a.js-modalVideo-play(href="video1" aria-label="open modal video").video
+                            //-     img(src=imgPath('partners/video-cover.jpg'), alt="")
+                            //-     .video__play
+                            //-         +icon('play')
+                            .video-ratio.video__wrapper
+                                iframe(src='https://www.youtube.com/embed/2TxGMXYj7Ew', allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
 
         section.partners-page__contact
             .pp-contact

@@ -322,44 +322,55 @@
             max-width: 100%;
         }
     }
-    .video{
+    .video-ratio{
         display: block;
-        @include aspect-ratio(780,480,true);
+		@include aspect-ratio(780,480,true);
         border-radius: var(--ppRadius);
         overflow: hidden;
-        img{
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            top: 0;
-            left: 0;
-        }
-        &__play{
-            position: absolute;
-            z-index: 2;
-            width: 1em;
-            height: 1em;
-            top: calc(50% - .5em);
-            left: calc(50% - .5em);
-            @include css-lock(68,100,450,1200);
-            .svg-icon{
-                width: 100%;
-                height: 100%;
-                position: relative;
-                transition: transform .3s ease-in-out;
-                transform-origin: center;
-            }
-        }
-        &:hover{
-            .video__play{
-                .svg-icon{
-                    transform: scale(.88);
-                }
-            }
-        }
-    }
+		iframe,
+		video{
+			border: none;
+			@extend %overlay-full;
+		}
+	}
+    // .video{
+    //     display: block;
+    //     @include aspect-ratio(780,480,true);
+    //     border-radius: var(--ppRadius);
+    //     overflow: hidden;
+    //     img{
+    //         position: absolute;
+    //         width: 100%;
+    //         height: 100%;
+    //         object-fit: cover;
+    //         object-position: center;
+    //         top: 0;
+    //         left: 0;
+    //     }
+    //     &__play{
+    //         position: absolute;
+    //         z-index: 2;
+    //         width: 1em;
+    //         height: 1em;
+    //         top: calc(50% - .5em);
+    //         left: calc(50% - .5em);
+    //         @include css-lock(68,100,450,1200);
+    //         .svg-icon{
+    //             width: 100%;
+    //             height: 100%;
+    //             position: relative;
+    //             transition: transform .3s ease-in-out;
+    //             transform-origin: center;
+    //         }
+    //     }
+    //     &:hover{
+    //         .video__play{
+    //             .svg-icon{
+    //                 transform: scale(.88);
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 
