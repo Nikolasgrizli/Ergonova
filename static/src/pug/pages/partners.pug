@@ -113,7 +113,9 @@ block content
                             //-     .video__play
                             //-         +icon('play')
                             .video-ratio.video__wrapper
-                                iframe(src='https://www.youtube.com/embed/2TxGMXYj7Ew', allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+                                video(controls="controls")
+                                    source(src="for-dillers.mp4" type="video/mp4")
+                                //- iframe(src='https://www.youtube.com/embed/2TxGMXYj7Ew', allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
 
         section.partners-page__contact
             .pp-contact
